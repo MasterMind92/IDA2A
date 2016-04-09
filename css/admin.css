@@ -1,0 +1,310 @@
+/* Propriétés du corps de la page*/
+body
+{
+	height: 768px;
+	width:100%;
+}
+/********************************/
+
+/**************************************************
+*Propriétés du menu
+***************************************************/
+
+/*propriétés de la nav id="menu"*/
+#menu
+{
+	height: 768px;
+	width:20%;
+	background-color: rgb(38,45,43);
+}
+/******************/
+
+/**************************************************
+*Elements contenu dans #menu
+***************************************************/
+
+/*propriétés de la classe "item"*/
+.item
+{
+	height: 130px;
+	width: 200%;
+}
+/*******************/
+
+/* propriété de #logo"*/
+#logo
+{
+	height: 110px;
+	width: 49.5%;
+	border: 1px solid black;
+	font-size: 26px;
+	color: white;
+	text-align: center;
+	padding-top: 20px;
+	padding-bottom: 0px;
+}
+/************************************/
+
+/* propriété de l'id "info"*/
+#info
+{
+	height: 110px;
+	width: 49.5%;
+	border: 1px solid black;
+	font-size: 26px;
+	color: white;
+	text-align: center;
+	padding-top: 20px;
+	padding-bottom: 0px;
+}
+/************************************/
+
+/*************************************
+*Propriétés du id "sider1"
+**************************************/
+#sider1
+{
+	height: 129px;
+	width: 20%;
+	background-color: rgb(38,45,43);
+	position: absolute;
+}
+/************************************/
+/*positionnement de #info et #sider1*/
+#info,#sider1
+{
+	display: inline-block;
+	vertical-align: top;
+}
+/************************************/
+
+/* propriété de #solu*/
+#solu
+{
+	height: 110px;
+	width: 49.5%;
+	border: 1px solid black;
+	font-size: 26px;
+	color: white;
+	text-align: center;
+	padding-top: 20px;
+	padding-bottom: 0px;
+}
+/************************************/
+
+/*************************************
+*Propriétés du id "sider2"
+**************************************/
+#sider2
+{
+	height: 129px;
+	width: 20%;
+	background-color: rgb(38,45,43);
+	position: absolute;
+}
+/************************************/
+/*positionnement de #solu et #sider2*/
+#solu,#sider2
+{
+	display: inline-block;
+	vertical-align: top;
+}
+/************************************/
+
+/* propriété de #stat*/
+#stat
+{
+	height: 110px;
+	width: 49.5%;
+	border: 1px solid black;
+	font-size: 26px;
+	color: white;
+	text-align: center;
+	padding-top: 20px;
+	padding-bottom: 0px;
+}
+/************************************/
+
+/*************************************
+*Propriétés du id "sider3"
+**************************************/
+#sider3
+{
+	height: 129px;
+	width: 20%;
+	background-color: rgb(38,45,43);
+	position: absolute;
+}
+/************************************/
+/*positionnement de #info et #sider1*/
+#stat,#sider3
+{
+	display: inline-block;
+	vertical-align: top;
+}
+/************************************/
+
+/* propriété de #solu*/
+#hist
+{
+	height: 110px;
+	width: 49.5%;
+	border: 1px solid black;
+	font-size: 26px;
+	color: white;
+	text-align: center;
+	padding-top: 20px;
+	padding-bottom: 0px;
+}
+/************************************/
+
+/*************************************
+*Propriétés du id "sider4"
+**************************************/
+#sider4
+{
+	height: 129px;
+	width: 20%;
+	background-color: rgb(38,45,43);
+	position: absolute;
+	visibility: 
+}
+/************************************/
+/*positionnement de #info et #sider1*/
+#hist,#sider4
+{
+	display: inline-block;
+	vertical-align: top;
+}
+/************************************/
+
+/*propriétés des #sub*/
+.sub
+{
+	height: 55px;
+	width: 100%;
+	border: 1px solid black;
+	font-size: 26px;
+	color: white;
+	text-align: center;
+	padding-top: 8px;
+
+}
+/*****************************/
+
+/******************************************
+*Propriétés du contenu
+*******************************************/
+
+/*Propriétés de #container*/
+#container
+{
+	height: 768px;
+	width:79%;
+	border: 1px solid black;
+}
+/**************************************************/
+
+/*positionnement de #container par rapport à #menu*/
+#container,#menu
+{
+	display: inline-block;
+	vertical-align: top;
+}
+/*************************************************/
+
+/*Propriétés de la navbar*/
+#navbar
+{
+	height: 55px;
+	width: 100%;
+	border:1px solid black;
+	background-color: rgb(38,45,43);
+	padding-top: 15px;
+}
+/***********************************************/
+	
+/*******************************************
+*Propriété des elements contenus dans navbar
+********************************************/
+form
+{
+	float: right;
+}
+/*propriétés de la zone de texte*/
+#txt_rech
+{
+	height:30px;
+	width:250px;
+	border:3px solid black;
+	border-radius: 5px 5px 5px 5px;
+}
+/********************************************/
+
+/*propriétés du bouton*/
+#btn_val
+{
+	height:34px;
+	width:150px;
+	border:3px solid black;
+	border-radius: 5px 5px 5px 5px;
+	background-color: white;	
+}
+/*******************************************/
+/*****************************************/
+
+/*Propriétés de #contenu*/
+#contenu
+{
+	height: 694px;
+	width: 100%;
+	overflow: auto;
+}
+/**************************************************/
+
+/**************************************************
+*Partie transition
+***************************************************/
+
+/*code de transition pour les têtes de liste*/
+#logo,#info,#solu,#stat,#hist
+{
+	-webkit-transition-property: background-color;
+	-webkit-transition-duration:0.5s;
+	-webkit-transition-timing-function:ease;
+}
+/*effet au survol*/
+#logo:hover,#info:hover,#solu:hover,#stat:hover,#hist:hover
+{
+	background-color: white;
+	color:rgb(82,179,217);
+}
+/*************************************************/
+
+/*code de transition pour les elements de liste*/
+.sub
+{
+	-webkit-transition-property: background-color;
+	-webkit-transition-duration:0.5s;
+	-webkit-transition-timing-function:ease;
+}
+/*effet au survol*/
+.sub:hover
+{
+	background-color: white;
+	color:rgb(82,179,217);
+}
+/*************************************************/
+
+/*transition de la zone de texte*/
+#txt_rech,#btn_val
+{
+	-webkit-transition-property: border-color;
+	-webkit-transition-duration:0.5s;
+	-webkit-transition-timing-function:ease;
+}
+#txt_rech:hover,#btn_val:hover
+{
+	border-color: rgb(82,179,217);
+	color: rgb(82,179,217);
+}
