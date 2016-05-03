@@ -1,0 +1,67 @@
+note de projet
+
+mettre un onglet de contact 
+onglet suivez-nous avec les reseaux sociaux 
+mettre le menu de la page d'administration de maniere horizontale 
+creer un sous menu 
+	groupe de travail 
+		mettre les informations des groupes 
+	personne ressources
+		les partenaires
+
+Site de reference 
+	ccme.ca
+	mddelcc.gouv.qc.ca
+
+
+parmi les entites nous allons utiliser:
+-exploitant
+-utilisateur
+-Role
+-Intervention(curative,preventive) 
+- Stations d'epuration des eaux usees
+
+nom de la station
+code de la station 
+commune 
+service instructeur 
+
+creer un fichier .htaccess 
+et ajouter le index.php dans chaque dossier
+
+supprimer le boutton precedent
+
+creation de la base de donnees 
+
+create database projetIDA2A 
+use ProjetIDA2A
+
+1- creer les tables ou il n'y a pas de ;igration de cle etrangere 
+
+2-creer un utilisateur 
+create user <nom utilisateur>@<serveur> identified by <mot de passe >
+
+create user 'ida2'@'127.0.0.1' identified by 'qwerty'
+
+Grant all privlileges on ProjetIDADB.* to 'ida2@127.0.0.1';
+
+---------------Connexion a la base de donnees--------------------------
+
+
+DSN Data Source Name prend en compte 
+
+	host : localhost ou nom de serveur  ou @IP
+	Nom de la bse de donnees 
+	Port 
+
+
+pour utiliser la Classe PDO on procede comme suit 
+
+$dsn = "mysql:127.0.0.1; dbname= IDA2A";
+$user = "root";
+$pwd = "qwerty";
+
+$cnx = new PDO($dsn,$user,$pass);
+
+
+

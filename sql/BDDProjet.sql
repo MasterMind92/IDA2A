@@ -18,3 +18,5 @@ INSERT INTO Compte(Lib_compte,Login_compte,Mdp_compte) VALUES
 ('Developpeur','MasterMind92','youngmoney1992'),
 ('Developpeur','TheGrimmReaper','at%ofotemefi1er');
 
+
+

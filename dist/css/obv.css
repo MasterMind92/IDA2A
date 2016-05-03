@@ -1,0 +1,34 @@
+.btn-orange
+{
+	color: white;
+	background-color: #F89406;
+	-webkit-transition-property:background-color;
+	-webkit-transition-duration:0.5s;
+	-webkit-transition-timing-function:ease;
+}
+.btn-orange:hover
+{
+	color: #F89406;
+	background-color: white;
+}
+.btn-orange:focus,
+.btn-orange:active,
+.btn-orange.active,
+.open > .dropdown-toggle.btn-orange
+{
+	color: #F89406;
+	background-color: white;
+}
+.navbar-orange
+{
+	color: white;
+	background-color: #F89406;
+}
+.txt-bv
+{
+	color: white;
+}
+.txt-bv:hover
+{
+	color: #26A65B;
+}

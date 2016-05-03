@@ -1,0 +1,85 @@
+<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+
+
+		<input type="checkbox" name="choice" value=1>
+		<input type="checkbox" name="choice" value=2>
+		<input type="checkbox" name="choice" value=3>
+
+		<div id="form1">		
+			<form method="">
+				<table>
+					<tr>
+						<td> <label> Champ:</label> </td>
+						<td> <input type="text" > </td>
+					</tr>
+					<tr>
+						<td> <label> Champ:</label> </td>
+						<td> <input type="text" > </td>
+					</tr>
+					<tr>
+						<td>  </td>
+						<td> <input type="text" > </td>
+					</tr>
+				</table>
+			</form>
+		</div>
+
+		<div id="form2">		
+			<form method="">
+				<table>
+					<tr>
+						<td> <label> Champ:</label> </td>
+						<td> <input type="text" > </td>
+					</tr>
+					<tr>
+						<td> <label> Champ:</label> </td>
+						<td> <input type="text" > </td>
+					</tr>
+					<tr>
+						<td>  </td>
+						<td> <input type="text" > </td>
+					</tr>
+				</table>
+			</form>
+		</div>
+
+		<div id="form3">		
+			<form method="">
+				<table>
+					<tr>
+						<td> <label> Champ:</label> </td>
+						<td> <input type="text" > </td>
+					</tr>
+					<tr>
+						<td> <label> Champ:</label> </td>
+						<td> <input type="text" > </td>
+					</tr>
+					<tr>
+						<td>  </td>
+						<td> <input type="text" > </td>
+					</tr>
+				</table>
+			</form>
+		</div>
+
+		<script src="../dist/js/vendor/jquery.min.js"></script>
+		<script type="text/javascript" >
+
+			$("#form1").hide();
+			$("#form2").hide();
+			$("#form3").hide();
+			
+			$(" input[value=1]").on('click', function(){
+				$("#form1").show(500);
+				$(" input[value=1]").on('click', function(){
+						$("#form1").hide(500);				
+				})
+			})
+
+		</script>
+	</body>
+</html>

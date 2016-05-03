@@ -12,34 +12,145 @@
 			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 		</p>
 	</div>
+
 	<div>
 		<h2 align="center"> Indiquez votre solution ici </h2>
-		<form name="form1" onsubmit="return verification();">
-			<table cellspacing="10" id="FormUI">
-				<script type="text/javascript">
-					function verification (){
+	</div>
+	<div class="form-group">
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 						
-						var divCom = document.getElementById('divCom');  
-
-
-						if (document.form1.Commentaire.value== "") {
+						<fieldset >
+							<legend>Profil</legend>
+						
 							
-							alert("Impossible d'envoyer un commentaire vide");
-							document.form1.Commentaire.style.border= " 5px solid rgba(231, 76, 60,1.0)";
-							return false;
-						}
-					}
-				</script>
-				
-				<tr>
-					<td > <textarea  placeholder="Vos commentaires..." name="Commentaire" id="Commentaire" rows="10" cols="90"></textarea></td>
-					<td> <div > <span id="divCom"> </span></div> </td>
-				</tr>
-				<tr>
-					<td > <input type="submit" id="Submit" value="Envoyer"></td>
-				</tr>
-			</table>
+							<label>
+								<input type="radio" name="profil" id="input" value="Exploitant">
+								Exploitant
+							</label>
+
+							<label>
+								<input type="radio" name="profil" id="input" value="Internaute">
+								Internaute
+							</label>
+
+							<label>
+								<input type="radio" name="profil" id="input" value="Admin">
+								Administrateur
+							</label>
+						</fieldset>
+					</div>
+				</div>		
+	</div>
+	<div id="internaute">
+		<form action="" method="POST" class="form-horizontal formInput" role="form">
+			<div class="form-group">
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						
+						<textarea class="form-control" rows="5" cols="90" placeholder="Vos commentaires..." name="Commentaire" ></textarea>
+						
+					</div>
+				</div>		
+			</div>
+	
+			<div class="form-group">
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+					<button type="submit" class="btn btn-block btn-primary">Submit</button>
+				</div>
+			</div>
 		</form>
 	</div>
-	
+			
+	<div id="exploit">
+		<div class="authentification">
+			<form id="FrmID" class="col-xs-12 col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4 col-lg-offset-4 col-lg-4" action="administration" method="POST" role="form">
+				<legend> Veuillez vous identifier</legend>
+			
+				<div class="form-group">
+					<input type="text" class="form-control input-lg" name="login" placeholder="votre login">
+				</div>
+				<div class="form-group">
+					<input type="password" class="form-control input-lg" name="mdp" placeholder="Votre mot de passe">
+				</div>
+			
+				<button type="submit" class="btn btn-danger btn-block ">Submit</button>
+			</form>
+		</div>
+		<div class="formInput">
+			<form action="" name="form" method="POST" onsubmit="return verification();" role="form" >
+				<div class="form-group">
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							
+							<textarea class="form-control" rows="5" cols="90" placeholder="Vos commentaires..." name="Commentaire" ></textarea>
+							
+						</div>
+					</div>		
+				</div>
+		
+				<div class="form-group">
+					<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+						<button type="submit" class="btn btn-block btn-primary">Submit</button>
+					</div>
+				</div>
+			</form>
+		</div>	
+	</div>	
+
+	<div id="admin">
+		<div class="authentification">
+			<form id="FrmID" class="col-xs-12 col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4 col-lg-offset-4 col-lg-4" action="administration" method="POST" role="form">
+				<legend> Veuillez vous identifier</legend>
+			
+				<div class="form-group">
+					<input type="text" class="form-control input-lg" name="login" placeholder="votre login">
+				</div>
+				<div class="form-group">
+					<input type="password" class="form-control input-lg" name="mdp" placeholder="Votre mot de passe">
+				</div>
+			
+				<button type="submit" class="btn btn-warning btn-block ">Submit</button>
+			</form>
+		</div>
+		<div class="formInput">
+			<form action="" method="POST" class="form-horizontal" role="form">
+					
+				<div class="form-group">
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<input type="text" class="form-control" name="Lieu" placeholder=" Indiquez lieu ici... Commune,Quartier, Precision supplementaires">
+						</div>
+					</div>		
+				</div>
+
+				<div class="form-group">
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<input type="file" class="form-control" name="photo" >
+						</div>
+					</div>		
+				</div>
+
+				<div class="form-group">
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							
+							<textarea class="form-control" rows="5" cols="90" placeholder="Vos commentaires..." name="Commentaire" ></textarea>
+							
+						</div>
+					</div>		
+				</div>
+		
+				<div class="form-group">
+					<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+						<button type="submit" class="btn btn-block btn-success">Submit</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>				
 </div>
+			
+<script src="dist/js/vendor/jquery.min.js"></script>
+<script type="text/javascript" src="dist/js/form.js"></script>

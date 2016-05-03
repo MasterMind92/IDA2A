@@ -1,0 +1,93 @@
+/****************************
+ * comment
+ ****************************/
+
+
+/*****************************
+ * comment
+ ******************************/
+#Corps{
+	margin: 0px;
+	padding:0px;
+}
+
+
+#Superdiv{
+	position: absolute;
+	top: 40px;
+	background-color:white;
+}
+
+/* transition des logos reseaux sociaux */
+#snap{
+-webkit-transition: background 2s ease-in-out;
+   -moz-transition: background 2s ease-in-out;
+    -ms-transition: background 2s ease-in-out;
+     -o-transition: background 2s ease-in-out;
+        transition: background 2s ease-in-out;	
+}
+
+/* comment */
+
+
+.FlashInfo{
+	background: rgb(236,240,241) ;
+	height:350px;
+}
+
+/* comment */
+
+.contenu{
+	margin-top: 15px;
+}
+
+
+/* comment */
+
+#Accueil{
+	height: 800px;
+	width: 100%;
+	color: white;
+	font-size: 24px;
+	overflow: hidden;
+	text-align: justify;
+}
+
+
+#Accueil > div{
+	height: 800px;
+	width: 100%;
+	display: inline-block;
+}
+
+#Accueil  p{
+	font: oblique bold 1em sans-serif, "Times New Roman";
+	line-height: 30px;
+}
+
+#Accueil  .img{
+	height: 400px;
+	width: 700px;
+	margin-left: 100px; 
+}
+
+#Accueil button {
+	
+}
+
+
+/*****************************
+ * comment
+ ******************************/
+
+ #FrmID{
+ 	margin-top: 100px;
+ 	margin-bottom: 100px;
+
+ }
+
+ /* comment */
+
+ footer{
+ 	margin-top: 15px;
+ }

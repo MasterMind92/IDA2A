@@ -16,8 +16,11 @@ if ($page === 'accueil') {
 } elseif ($page === 'solutions') {
 	require 'page/FrmSolutions.php';
 } elseif ($page === 'carte') {
-	require 'pages/carte.php';
+	require 'page/carte.php';
+} elseif ($page === 'contact') {
+	require 'page/Contact.php';
 }
+
 
 $content = ob_get_clean();
 
