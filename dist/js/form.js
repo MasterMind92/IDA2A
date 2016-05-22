@@ -17,25 +17,145 @@ $(function () {
 
 	
 	Internaute.click(function () {
+		$(".authentification").hide(500);
+		$(".formInput").hide(500);
 		$("#internaute .formInput").toggle("clip");
 		$("#exploit .authentification").hide("clip");
-		$("#admin .authentification").hide("clip");
+		$("#Admin .authentification").hide("clip");
 	})
 
-	Exploitant.click(function() {
+	Administrateur.click(function() {
+		$(".authentification").hide(500);
+		$(".formInput").hide(500);
 		$("#internaute .formInput").hide("clip");
 		$("#exploit .authentification").hide("clip");
-		$("#admin .authentification").toggle("clip");
+		$("#Admin .authentification").toggle("fold");
 	});
 
-	Administrateur.click(function() {
+
+	Exploitant.click(function() {
+		$(".authentification").hide(500);
+		$(".formInput").hide(500);
 		$("#internaute .formInput").hide("clip");
-		$("#admin .authentification").hide("clip");
+		$("#Admin .authentification").hide("clip");
 		 $("#exploit .authentification").toggle("fold");
 	});
 
 
+	/**********************************************************************
+	*	Partie relative a la gestion de la liste en fonction des communes
+	***********************************************************************/
+
+
+	var FrmInternaute= $("#CommuneInt");
+	var FrmExp= $("#CommuneExp");
+	var FrmAdmin= $("#CommuneAdmin");
+
+	FrmInternaute.change(function () {
+		 
+		 var commune = $(this).val() ;
+
+		 $.get("../IDA2A/page/data/"+commune+".html",function (data) {
+		 	 $("#ZoneInt").html(data);
+		 });
+	});
+
+
+	FrmExp.change(function () {
+		 
+		 var commune = $(this).val() ;
+
+		 $.get("../IDA2A/page/data/"+commune+".html",function (data) {
+		 	 $("#ZoneExp").html(data);
+		 });
+	});
+
+
+	FrmAdmin.change(function () {
+		 
+		 var commune = $(this).val() ;
+
+		 $.get("../IDA2A/page/data/"+commune+".html",function (data) {
+		 	 $("#ZoneAdmin").html(data);
+		 });
+	});
+
+
+	/**********************************************************************
+	*	Partie relative a la gestion des formulaires d'authentification 
+	***********************************************************************/
+
+
+	$("#FrmAuthExp").submit(function (event) {
+		 
+		 //Arret du postage de formulaire normal 
+		event.preventDefault();
+
+
+		 //recuperation des valeurs des elements du formulaire 
+
+		 var form=$(this),
+		 	login=form.find("input[name='login']").val(),
+		 	mdp=form.find("input[name='mdp']").val();
+
+
+		 //effectuation de la requete 
+
+		$.post("../IDA2A/app/Traitement.php",{login:login, mdp:mdp},function (data) {
+			 if (data=="ok") {
+			 	$("#exploit .authentification").hide("clip");
+			 	$("#exploit .formInput").show(500);
+
+			 	// reinitialisation des champs 
+				form.find("input[name='login']").val("");
+				form.find("input[name='mdp']").val("");	
+
+			 	$(this).add(".form-group",".authentification").removeClass("has-error");
+
+			 }else {
+				$(this).add(".form-group",".authentification").addClass("has-error");		 	
+			 }
+		});
+
+
+			
 	
+
+
+	});
+
+
+	$("#FrmAuthAdmin").submit(function (event) {
+		 
+		 //Arret du postage de formulaire normal 
+		event.preventDefault();
+
+		 //recuperation des valeurs des elements du formulaire 
+
+		 var form=$(this),
+		 	login=form.find("input[name='login']").val(),
+		 	mdp=form.find("input[name='mdp']").val();
+
+		 //effectuation de la requete 
+
+		$.post("../IDA2A/app/Traitement.php",{login:login, mdp:mdp},function (data) {
+			 if (data=="ok") {
+			 	$("#Admin .authentification").hide("clip");
+			 	$("#Admin .formInput").show(500);
+			 	$(this).add(".form-group",".authentification").removeClass("has-error");
+			 	
+
+			 	// reinitialisation des champs 
+			 	form.find("input[name='login']").val("");
+			 	form.find("input[name='mdp']").val("");
+			 }else {
+
+				$(this).add(".form-group",".authentification").addClass("has-error");			 	
+			 }
+		});
+
+
+	});
 
 });
 

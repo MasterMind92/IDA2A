@@ -3,5 +3,6 @@
 RewriteEngine on
 RewriteBase /tests/IDA2A/
 RewriteRule ^identification$ page/administration/Login.php
+RewriteRule ^Traitement$ app/Traitement.php
 RewriteRule ^administration$ page/administration/admin.php
 RewriteRule ^([a-zA-Z0-9\-]+)$ index.php?p=$1 

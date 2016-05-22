@@ -17,30 +17,30 @@
 		<h2 align="center"> Indiquez votre solution ici </h2>
 	</div>
 	<div class="form-group">
-				<div class="row">
-					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-						
-						<fieldset >
-							<legend>Profil</legend>
-						
-							
-							<label>
-								<input type="radio" name="profil" id="input" value="Exploitant">
-								Exploitant
-							</label>
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				
+				<fieldset >
+					<legend>Profil</legend>
+				
+					
+					<label>
+						<input type="radio" name="profil" id="input" value="Exploitant">
+						Exploitant
+					</label>
 
-							<label>
-								<input type="radio" name="profil" id="input" value="Internaute">
-								Internaute
-							</label>
+					<label>
+						<input type="radio" name="profil" id="input" value="Internaute">
+						Internaute
+					</label>
 
-							<label>
-								<input type="radio" name="profil" id="input" value="Admin">
-								Administrateur
-							</label>
-						</fieldset>
-					</div>
-				</div>		
+					<label>
+						<input type="radio" name="profil" id="input" value="Admin">
+						Administrateur
+					</label>
+				</fieldset>
+			</div>
+		</div>		
 	</div>
 	<div id="internaute">
 		<form action="" method="POST" class="form-horizontal formInput" role="form">

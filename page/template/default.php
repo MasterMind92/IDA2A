@@ -30,7 +30,7 @@ if (!isset($_SESSION['erreur'])) {
   </head>
   <body>
     <div  id="Corps" class="row">
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <div class=" col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <img src="dist/img/projet/fond.jpg" width="100%" height="100%" class="img-responsive" alt="Image">
         <div id="Superdiv" class="col-xs-offset-1 col-xs-10 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10">
 
@@ -40,7 +40,7 @@ if (!isset($_SESSION['erreur'])) {
 
         <!-- SLIDER -->
 
-        <div id="Slider" class="carousel slide" data-ride="carousel">
+        <div id="Slider" class=" hidden-xs carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#Slider" data-slide-to="0" class=""></li>
                 <li data-target="#Slider" data-slide-to="1" class=""></li>
@@ -61,63 +61,76 @@ if (!isset($_SESSION['erreur'])) {
             <a class="left carousel-control" href="#Slider" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
             <a class="right carousel-control" href="#Slider" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
         </div>
-          
+          <!-- -->
           <div class="row">
-            <div class= "col-xs-offset-3 col-xs-2  col-sm-offset-3 col-sm-2  col-md-offset-3 col-md-4  col-lg-offset-3 col-lg-2">
+            <div class= "col-xs-3  col-sm-offset-3 col-sm-2  col-md-offset-3 col-md-4  col-lg-offset-3 col-lg-2">
               Suivez-nous sur:
             </div>
-            <div class= "col-xs-1  col-sm-1  col-md-1  col-lg-1">
+            <div class= "col-xs-3 col-sm-2  col-md-1  col-lg-1">
               <a href=""> <img id="google" src="dist/img/projet/logo/google.png" class="img-responsive" alt="Image" width="100%"  > </a>
             </div>
-            <div class= "col-xs-1  col-sm-1  col-md-1  col-lg-1">
+            <div class= "col-xs-3  col-sm-2  col-md-1  col-lg-1">
               <a href=""> <img id="fb" src="dist/img/projet/logo/fb.png" class="img-responsive" alt="Image" width="100%"  > </a>
             </div>
-            <div class= "col-xs-1  col-sm-1  col-md-1  col-lg-1">
+            <div class= "col-xs-3  col-sm-2  col-md-1  col-lg-1">
               <a href=""> <img id="twit" src="dist/img/projet/logo/twit.png" class="img-responsive" alt="Image" width="100%"  > </a>
             </div>
-            <div class= "col-xs-1  col-sm-1  col-md-1  col-lg-1">
+            <div class= "col-xs-3  col-sm-2  col-md-1  col-lg-1">
               <a href=""> <img id="insta" src="dist/img/projet/logo/insta.png" class="img-responsive" alt="Image" width="100%"  > </a>
             </div>
-            <div  id="snap" class= "col-xs-1  col-sm-1  col-md-1  col-lg-1">
+            <div  id="snap" class= "col-xs-3  col-sm-2  col-md-1  col-lg-1">
                <img  src="dist/img/projet/logo/snap.png" class="img-responsive" alt="Image" width="100%" > 
             </div>
 
           </div>
 
-          <!--    -->
+          <!-- -->
+
           <div class="Menu row">
             <div class="row">
               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
+                <nav class="navbar navbar-default " role="navigation">
+                  <!-- Brand and toggle get grouped for better mobile display -->
+                  <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                    </button>
+                  </div>
                 
-                <div class="btn-group btn-group-justified">
+                  <!-- Collect the nav links, forms, and other content for toggling -->
+                  <div class="collapse navbar-collapse navbar-ex1-collapse">
 
-                  <div class="btn-group">
-                  <button class="btn btn-large btn-success dropdown-toggle" data-toggle="dropdown" type="button">ACCUEIL <span class="caret" > </span></button> 
+                  <a href="#" type="button" class="dropdown-toggle btn btn-success  navbar-btn" data-toggle="dropdown">ACCUEIL <b class="caret"></b></a>
                   <ul class="dropdown-menu" role="menu">
                     <li> <a href="accueil">Accueil</a> </li>
                     <li> <a href="">Groupe de travail</a> </li>
                     <li> <a href="">Personnes Ressources</a> </li>
                   </ul>
-                </div>
-                <a class="btn btn-large btn-success" href="problemes" role="button">INCIDENT</a>
-                <a class="btn btn-large btn-success" href="solutions" role="button">SUGGESTIONS</a>
-                <a class="btn btn-large btn-success" href="geolocalisation" role="button">GEOLOCALISATION</a>
-                <a class="btn btn-large btn-success" href="identification" role="button">ADMINISTRATION</a>
-                <a class="btn btn-large btn-success" href="contact" role="button">CONTACT</a>
-
-              </div>
+                  <a type="button" class="btn btn-success  navbar-btn" href="problemes" >INCIDENT</a>
+                  <a type="button" class="btn btn-success  navbar-btn" href="solutions">SUGGESTIONS</a>
+                  <a type="button" class="btn btn-success  navbar-btn" href="geolocalisation">GEOLOCALISATION</a>
+                  <a type="button" class="btn btn-success  navbar-btn" href="identification">ADMINISTRATION</a>
+                  <a type="button" class="btn btn-success  navbar-btn" href="contact">CONTACT</a>
+                  
+                  </div><!-- /.navbar-collapse -->
+                </nav>
               </div>
             </div>
             
            </div>
 
-            <!--    -->
+            <!--  SECTION DE LA PAGE QUI PREND LE CONTENU DES DIFFERENTES PAGES   -->
           <div class="contenu row">
-            <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+            <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
+
               <?php echo $content ; ?>
+
             </div>
-            <div class="FlashInfo col-xs-2 col-sm-2 col-md-2 col-lg-2">
+            <div class="FlashInfo hidden-xs hidden-sm col-xs-2 col-sm-2 col-md-2 col-lg-2">
               <span>FLASH INFO</span>
             </div>
           </div>
@@ -135,8 +148,7 @@ if (!isset($_SESSION['erreur'])) {
               <img src="dist/img/projet/environnement.jpg" class="img-responsive" alt="Image">
             </div>
           </div>
-
-      </div>
+        </div>
       </div>
     </div>
 
@@ -150,8 +162,39 @@ if (!isset($_SESSION['erreur'])) {
     <script type="text/javascript">
       
       $(function () {
-      
+        $('#Accueil > div:nth(1)').css({
+          "color":"rgb(68,195,123)",
+        });
+
+
+        $('#Accueil > div:nth(1)').hide();
+        $('#Accueil > div:nth(2)').hide();
+
+
+        $('#Accueil > div:nth(0) .suivant ').on('click', function() {
+          
+          $('#Accueil > div:nth(0)').slideUp(500);  
+          $('#Accueil > div:nth(1)').show();  
         
+        });
+
+
+        $('#Accueil > div:nth(1) .suivant ').on('click', function() {
+          
+          $('#Accueil > div:nth(1)').slideUp(500);  
+          $('#Accueil > div:nth(2)').show();  
+        
+        });
+
+        $('#Accueil > div:nth(2) .suivant ').on('click', function() {
+            
+          $('#Accueil > div:nth(2)').slideDown(500, function() {
+             $('#Accueil > div:nth(0)').slideDown(500);
+          });    
+        
+        });
+
+
 
         $('#snap').css({
           '':'',

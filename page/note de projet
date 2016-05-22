@@ -64,4 +64,5 @@ $pwd = "qwerty";
 $cnx = new PDO($dsn,$user,$pass);
 
 
+ecrire un programme php qui met a jour les intervention en fonction des incidents 
 

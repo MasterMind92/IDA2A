@@ -65,10 +65,10 @@
 	line-height: 30px;
 }
 
-#Accueil  .img{
+#Accueil  .img-responsive{
 	height: 400px;
 	width: 700px;
-	margin-left: 100px; 
+	margin: auto; 
 }
 
 #Accueil button {
