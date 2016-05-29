@@ -15,8 +15,8 @@ if ($page === 'accueil') {
 	require 'page/Frmproblemes.php';
 } elseif ($page === 'solutions') {
 	require 'page/FrmSolutions.php';
-} elseif ($page === 'carte') {
-	require 'page/carte.php';
+} elseif ($page === 'geolocalisation') {
+	require 'page/Carte.php';
 } elseif ($page === 'contact') {
 	require 'page/Contact.php';
 }

@@ -48,6 +48,22 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBTC8cIfqIXdxrPWK5qo8NzAlfINAVaOyo"></script>
+		<script>
+		
+		function initialize() {
+
+		  var mapProp = {
+		    center: new google.maps.LatLng(5.3096600,-4.0126600),
+		    zoom:10,
+		    mapTypeId:google.maps.MapTypeId.ROADMAP
+		  };
+		  var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+		
+		}
+		google.maps.event.addDomListener(window, 'load', initialize);
+
+		</script>
 		<title>Title Page</title>
 
 		<!-- Bootstrap CSS -->
@@ -62,7 +78,10 @@
 			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 		<![endif]-->
+
 		<style type="text/css">
+			 
+
 			.row
 			{
 				margin-top: 5px;
@@ -77,6 +96,8 @@
 				height: 100px;
 				width: 120px;	
 			}
+
+
 		</style>
 	</head>
 	<body>
@@ -86,7 +107,7 @@
 				
 				<form role="search" class="navbar-form navbar-right">
   					<div class="form-group">
-  					<a href=""><img id="theme" src="../IDA2A/page/administration/images/theme.png"></a> 
+  					<a href="" id="theme"><img src="../IDA2A/page/administration/images/theme.png"></a> 
     				<input type="text" placeholder="Search" class="form-control">
   					</div>
   					<button class="btn btn-orange" type="submit">Valider</button>
@@ -132,8 +153,8 @@
 					<!--contenu de la page d'accueil-->
 						<!--au lancement de la page d'accueil-->
 						
-	 				<div id="Accueil" class="col-md-12 col-lg-12">
-						<img class="col-md-12 col-lg-12" src="../IDA2A/page/administration/images/abd.jpg"/>
+	 				<div id="googleMap"  style="height:700px;" class="col-md-12 col-lg-12">
+						
 					</div>
 				
 					<div class="Start col-md-12 col-lg-12">
@@ -382,7 +403,7 @@
 		</div>
 	</div>
 
-	<div class="row">
+	<footer class="row">
 		<div class="col-md-offset-1 col-lg-offset-1 col-md-10 col-lg-10 navbar-orange">
 			<div class="row">
 				<div class="col-md-offset-5 col-lg-offset-5 col-md-4 col-lg-4">
@@ -395,18 +416,16 @@
 			 	</div>
 			 </div> 
 		</div>
-	</div>
+	</footer>
 
+	
 		<!-- jQuery (necessary for Flat UI's JavaScript plugins) -->
     <script src="../IDA2A/dist/js/vendor/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="../IDA2A/dist/js/vendor/video.js"></script>
     <script src="../IDA2A/dist/js/flat-ui.min.js"></script>
     <script src="../IDA2A/dist/js/AdminBehave.js"></script>
-    <script type="text/javascript">
-    	$('#theme').click(function() {
-    		$('.navbar').removeClass('navbar-orange').addClass('navbar-inverse');
-    	});	
-    </script>
+    
+
 	</body>
 </html>

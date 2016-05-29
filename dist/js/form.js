@@ -85,6 +85,7 @@ $(function () {
 	*	Partie relative a la gestion des formulaires d'authentification 
 	***********************************************************************/
 
+	//formulaire d'authentification de l'exploitant 
 
 	$("#FrmAuthExp").submit(function (event) {
 		 
@@ -125,6 +126,8 @@ $(function () {
 	});
 
 
+	//formulaire d'authentification de l'administration 
+
 	$("#FrmAuthAdmin").submit(function (event) {
 		 
 		 //Arret du postage de formulaire normal 
@@ -157,6 +160,29 @@ $(function () {
 
 	});
 
+
+
+	/************************************************************************************
+	*	PARTIE DU SCRIPT RELATIVE AUX POSTAGE DES FORMULAIRES PAR REQUETES AJAX 
+	*************************************************************************************/
+
+	$("form ").submit(function (event) {
+		
+		//Arret du postage de formulaire normal 
+		event.preventDefault();
+
+		var infos,i=0;
+
+		//boucle de reception des donnees 
+
+		$(this).each(function () {
+			infos += $(this).find("input,textarea").val();	 
+		})
+		
+
+		alert(infos);
+
+	});
 });
 
 

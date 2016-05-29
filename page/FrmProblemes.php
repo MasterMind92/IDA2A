@@ -10,7 +10,7 @@
 			</div>
 
 			<div>
-				<h2 align="center"> Indiquez votre probleme ici </h2>
+				<h2 align="center"> Selectionnez votre profil d'utilisateur </h2>
 
 				<!-- CHAMP DE SELECTION DU PROFIL D'UTILISATEUR -->
 
@@ -41,10 +41,30 @@
 					</div>		
 				</div>
 
+				
+
 				<!-- FORMULAIRE DE L'INTERNAUTE-->
 				<div id="internaute">
-					<form action="app/Traitement.php" method="POST" class="form-horizontal formInput" role="form" enctype="multipart/form-data">
+					<form action="" method="POST" class="form-horizontal formInput" role="form" enctype="multipart/form-data">
 						
+						<legend> <h2 align="center">Indiquez votre probleme ici</h2>  </legend>
+						<!-- CHAMP DE PRECISION DE LA NATURE DU PROBLEME -->
+						<div class="form-group">
+							<div class="row">
+								<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+									<label for="">Nature de l'incident </label>		
+								</div>
+								<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+									<select name="" id="input" class="form-control" required="required">
+										<option value="">Regard Bouche</option>
+										<option value="">Canalisation Cassee</option>
+										<option value="">Egout Bouche</option>
+										<option value=""></option>
+									</select>		
+								</div>
+							</div>
+						</div>
+
 						<!-- CHAMP DE SELECTION DU LIEU -->	
 						<div class="form-group">
 							<div class="row">
@@ -77,22 +97,25 @@
 						<!-- CHAMP DE SELECTION DE LA PHOTO DU LIEU -->
 						<div class="form-group">
 							<div class="row">
-								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+									<label for=""> Image du probleme(si possible)</label>
+								</div>
+								<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
 									<input type="file" class="form-control" name="photo" >
 								</div>
 							</div>		
 						</div>
-
+						
 						<!-- CHAMP DE RECCEPTION DES COMMENTAIRES -->
 						<div class="form-group">
 							<div class="row">
 								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 									
 									<textarea class="form-control" rows="5" cols="90" placeholder="Vos commentaires..." name="Commentaire" ></textarea>
-									
 								</div>
 							</div>		
 						</div>
+						
 						<!--  BOUTON DE SOUMISSION DU FORMULAIRE -->
 						<div class="form-group">
 							<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
@@ -127,6 +150,26 @@
 					<div class="formInput">
 						<form action=""  method="POST" class="form-horizontal" role="form">
 							
+						<legend> <h2 align="center">Indiquez votre probleme ici</h2>  </legend>
+							
+							<!-- CHAMP DE PRECISION DE LA NATURE DU PROBLEME -->
+							<div class="form-group">
+								<div class="row">
+									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+										<label for="">Nature de l'incident </label>		
+									</div>
+									<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+										<select name="" id="input" class="form-control" required="required">
+											<option value="">Regard Bouche</option>
+											<option value="">Canalisation Cassee</option>
+											<option value="">Egout Bouche</option>
+											<option value=""></option>
+											<option value=""></option>
+										</select>		
+									</div>
+								</div>
+							</div>
+
 							<!-- CHAMP DE SELECTION DU LIEU -->	
 							<div class="form-group">
 								<div class="row">
@@ -159,7 +202,10 @@
 							<!-- CHAMP DE SELECTION DE LA PHOTO DU LIEU -->
 							<div class="form-group">
 								<div class="row">
-									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+										<label for=""> Image du probleme(si possible)</label>
+									</div>
+									<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
 										<input type="file" class="form-control" name="photo" >
 									</div>
 								</div>		
@@ -219,6 +265,26 @@
 					<div class="formInput">
 						<form action="" method="POST" class="form-horizontal" role="form">
 							
+						<legend> <h2 align="center">Indiquez votre probleme ici</h2>  </legend>
+							
+							<!-- CHAMP DE PRECISION DE LA NATURE DU PROBLEME -->
+							<div class="form-group">
+								<div class="row">
+									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+										<label for="">Nature de l'incident </label>		
+									</div>
+									<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+										<select name="" id="input" class="form-control" required="required">
+											<option value="">Regard Bouche</option>
+											<option value="">Canalisation Cassee</option>
+											<option value="">Egout Bouche</option>
+											<option value=""></option>
+											<option value=""></option>
+										</select>		
+									</div>
+								</div>
+							</div>
+
 							<!-- CHAMP DE SELECTION DU LIEU -->	
 							<div class="form-group">
 								<div class="row">
@@ -271,7 +337,7 @@
 							<!-- BOUTON DE SOUMISSION DU FORMULAIRE -->
 							<div class="form-group">
 								<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-									<button type="submit" class="btn btn-block btn-success">Submit</button>
+									<button type="submit" class=" btn btn-block btn-success">Submit</button>
 								</div>
 							</div>
 						</form>

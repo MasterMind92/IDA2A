@@ -43,7 +43,7 @@
 		</div>		
 	</div>
 	<div id="internaute">
-		<form action="" method="POST" class="form-horizontal formInput" role="form">
+		<form action="/" method="POST" class="form-horizontal formInput" role="form">
 			<div class="form-group">
 				<div class="row">
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -64,7 +64,7 @@
 			
 	<div id="exploit">
 		<div class="authentification">
-			<form id="FrmID" class="col-xs-12 col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4 col-lg-offset-4 col-lg-4" action="administration" method="POST" role="form">
+			<form id="FrmAuthExp" class="col-xs-12 col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4 col-lg-offset-4 col-lg-4" action="/" method="POST" role="form">
 				<legend> Veuillez vous identifier</legend>
 			
 				<div class="form-group">
@@ -98,9 +98,9 @@
 		</div>	
 	</div>	
 
-	<div id="admin">
+	<div id="Admin">
 		<div class="authentification">
-			<form id="FrmID" class="col-xs-12 col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4 col-lg-offset-4 col-lg-4" action="administration" method="POST" role="form">
+			<form id="FrmAuthAdmin" class="col-xs-12 col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4 col-lg-offset-4 col-lg-4" action="/" method="POST" role="form">
 				<legend> Veuillez vous identifier</legend>
 			
 				<div class="form-group">
@@ -116,23 +116,7 @@
 		<div class="formInput">
 			<form action="" method="POST" class="form-horizontal" role="form">
 					
-				<div class="form-group">
-					<div class="row">
-						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-							<input type="text" class="form-control" name="Lieu" placeholder=" Indiquez lieu ici... Commune,Quartier, Precision supplementaires">
-						</div>
-					</div>		
-				</div>
-
-				<div class="form-group">
-					<div class="row">
-						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-							<input type="file" class="form-control" name="photo" >
-						</div>
-					</div>		
-				</div>
-
-				<div class="form-group">
+					<div class="form-group">
 					<div class="row">
 						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 							
@@ -144,7 +128,7 @@
 		
 				<div class="form-group">
 					<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-						<button type="submit" class="btn btn-block btn-success">Submit</button>
+						<button type="submit" class="btn btn-block btn-primary">Submit</button>
 					</div>
 				</div>
 			</form>

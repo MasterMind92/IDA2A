@@ -159,8 +159,18 @@ if (!isset($_SESSION['erreur'])) {
 
     <script src="dist/js/vendor/video.js"></script>
     <script src="dist/js/flat-ui.min.js"></script>
+    
     <script type="text/javascript">
       
+      var map;
+      
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 8
+        });
+      }
+
       $(function () {
         $('#Accueil > div:nth(1)').css({
           "color":"rgb(68,195,123)",
@@ -194,16 +204,6 @@ if (!isset($_SESSION['erreur'])) {
         
         });
 
-
-
-        $('#snap').css({
-          '':'',
-          '':'',
-          '':'',
-          '':'',
-          '':'',
-        })
-
         $("#snap").on('mouseover',function(){
           $('#snap img').attr('src','dist/img/projet/logo/snapNeg.png');
         })
@@ -218,8 +218,13 @@ if (!isset($_SESSION['erreur'])) {
             $('#google img').attr('src','dist/img/projet/logo/google.png');
         });
 
+        /*****************************************************************
+        *   SCRIPT DE GESTION DE LA CARTE GOOGLE MAPS 
+        ******************************************************************/
+
       });
     </script>
-
+    
   </body>
 </html>
+*
