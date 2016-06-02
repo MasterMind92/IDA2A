@@ -91,3 +91,10 @@
  footer{
  	margin-top: 15px;
  }
+
+/***/
+
+.succes{
+	font-weight: bold;
+	color: green;
+}
