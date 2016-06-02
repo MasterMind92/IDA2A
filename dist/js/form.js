@@ -14,6 +14,7 @@ $(function () {
 	
 	$(".authentification").hide();
 	$(".formInput").hide();
+	$(".panel").hide();
 
 	
 	Internaute.click(function () {
@@ -118,11 +119,6 @@ $(function () {
 			 }
 		});
 
-
-			
-	
-
-
 	});
 
 
@@ -166,23 +162,24 @@ $(function () {
 	*	PARTIE DU SCRIPT RELATIVE AUX POSTAGE DES FORMULAIRES PAR REQUETES AJAX 
 	*************************************************************************************/
 
-	$("form ").submit(function (event) {
+	$("#internaute .formInput ").bind("submit",function (event) {
 		
 		//Arret du postage de formulaire normal 
 		event.preventDefault();
 
-		var infos,i=0;
+		var infos;
 
-		//boucle de reception des donnees 
-
-		$(this).each(function () {
-			infos += $(this).find("input,textarea").val();	 
-		})
+		//reception des infos du formulaire 
+		infos = $(this).find("textarea").val();
 		
 
-		alert(infos);
+		$.post("../IDA2A/app/Traitement.php",{suggestion:infos},function (data) {
+			 $("#internaute .formInput").hide(500);
+			 $(".panel").show(500);
+		});
 
 	});
+
 });
 
 
