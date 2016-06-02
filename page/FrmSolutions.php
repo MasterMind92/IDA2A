@@ -43,13 +43,13 @@
 		</div>		
 	</div>
 	<div id="internaute">
-		<form action="/" method="POST" class="form-horizontal formInput" role="form">
+		<form action=""  method="POST" class=" suggestion form-horizontal formInput" role="form">
 			<div class="form-group">
 				<div class="row">
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 						
 						<textarea class="form-control" rows="5" cols="90" placeholder="Vos commentaires..." name="Commentaire" ></textarea>
-						
+
 					</div>
 				</div>		
 			</div>
@@ -61,7 +61,21 @@
 			</div>
 		</form>
 	</div>
-			
+
+	<div class="row">
+		<div class="col-xs-offset-3 col-xs-6 col-sm-offset-3 col-sm-6 col-md-offset-3 col-md-6 col-lg-offset-3 col-lg-6">
+			<div class="panel panel-success">
+				  <div class="panel-heading">
+						<h3 class="panel-title">Notification </h3>
+				  </div>
+				  <div class="panel-body succes">
+						Le formulaire a ete soumis avec succes <span class="glyphicon glyphicon-ok "></span> 
+						<button type="button" class="btn btn-success">OK</button>
+				  </div>
+			</div>
+		</div>
+	</div>
+
 	<div id="exploit">
 		<div class="authentification">
 			<form id="FrmAuthExp" class="col-xs-12 col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4 col-lg-offset-4 col-lg-4" action="/" method="POST" role="form">
@@ -78,7 +92,7 @@
 			</form>
 		</div>
 		<div class="formInput">
-			<form action="" name="form" method="POST" onsubmit="return verification();" role="form" >
+			<form action="" class="suggestion" name="form" method="POST" onsubmit="return verification();" role="form" >
 				<div class="form-group">
 					<div class="row">
 						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -100,7 +114,7 @@
 
 	<div id="Admin">
 		<div class="authentification">
-			<form id="FrmAuthAdmin" class="col-xs-12 col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4 col-lg-offset-4 col-lg-4" action="/" method="POST" role="form">
+			<form id="FrmAuthAdmin" class=" col-xs-12 col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4 col-lg-offset-4 col-lg-4" action="/" method="POST" role="form">
 				<legend> Veuillez vous identifier</legend>
 			
 				<div class="form-group">
@@ -114,7 +128,7 @@
 			</form>
 		</div>
 		<div class="formInput">
-			<form action="" method="POST" class="form-horizontal" role="form">
+			<form action="" method="POST" class="suggestion form-horizontal" role="form">
 					
 					<div class="form-group">
 					<div class="row">
