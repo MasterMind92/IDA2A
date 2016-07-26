@@ -2,10 +2,7 @@
 			<div>
 				<h2 align="center"> Indications </h2>
 				<p> 
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat. 
+					Sur cette page vous pourrez soumettre un incident aux autorites competentes via le formulaire se trouvant ci-dessous.
 				</p>
 			</div>
 
@@ -41,10 +38,24 @@
 					</div>		
 				</div>
 
-				
+				<!-- BOITE DE NOTIFICATION DE SOUMISSION DU FORMULAIRE -->
+
+				<div class="row">
+					<div class="col-xs-offset-3 col-xs-6 col-sm-offset-3 col-sm-6 col-md-offset-3 col-md-6 col-lg-offset-3 col-lg-6">
+						<div class="panel panel-success">
+							  <div class="panel-heading">
+									<h3 class="panel-title">Notification </h3>
+							  </div>
+							  <div class="panel-body succes">
+									Le formulaire a ete soumis avec succes <span class="glyphicon glyphicon-ok "></span> 
+									<a type="button" href="accueil" class="btn btn-success">OK</a>
+							  </div>
+						</div>
+					</div>
+				</div>
 
 				<!-- FORMULAIRE DE L'INTERNAUTE-->
-				<div id="internaute">
+				<div id="internaute" class="Incident">
 					<form action="" method="POST" class="form-horizontal formInput" role="form" enctype="multipart/form-data">
 						
 						<legend> <h2 align="center">Indiquez votre probleme ici</h2>  </legend>
@@ -55,11 +66,16 @@
 									<label for="">Nature de l'incident </label>		
 								</div>
 								<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-									<select name="" id="input" class="form-control" required="required">
-										<option value="">Regard Bouche</option>
-										<option value="">Canalisation Cassee</option>
-										<option value="">Egout Bouche</option>
-										<option value=""></option>
+									<select  name= "catincInt" id="catincInt" class="form-control"   required="required">
+										<option value="Regard">Regard </option>
+										<option value="Canalisation">Canalisation </option>
+										<option value="Egout">Egout</option>
+									</select>		
+								</div>
+								<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+									<select name= "incidentInt" id="incidentInt" class="form-control"  required="required">
+										<option value="Bouche">Bouche</option>
+										<option value="Cassee">Cassee</option>
 									</select>		
 								</div>
 							</div>
@@ -81,6 +97,7 @@
 										<option value="Koumassi">Koumassi</option>
 										<option value="Treichville">Treichville</option>
 										<option value="Cocody">Cocody</option>
+										<option value="Attecoube">Attecoube</option>
 									</select>
 								</div>
 								<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
@@ -89,7 +106,7 @@
 									</select>
 								</div>
 								<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-									<input type="text" name="" id="input" class="form-control" value="" required="required"  title="" placeholder="precision supplementaire ">
+									<input type="text" name="precisionInt" id="precisionInt" class="form-control" value="" required="required"  title="" placeholder="precision supplementaire ">
 								</div>
 							</div>		
 						</div>
@@ -129,7 +146,8 @@
 				<!-- 				FORMULAIRE DE L'EXPLOITANT 					-->
 				<!---------------------------------------------------------------->
 
-				<div id="exploit">
+				<div id="exploit" class="Incident">
+					
 					<!-- FORMULAIRE D'AUTHENTIFICATION -->
 					<div class="authentification">
 						<form id="FrmAuthExp" class="col-xs-12 col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4 col-lg-offset-4 col-lg-4" action="/" method="POST" role="form">
@@ -243,7 +261,7 @@
 					</div>	
 				</div>	
 
-				<div id="Admin">
+				<div id="Admin" class="Incident">
 					<!-- FORMULAIRE D'AUTHENTIFICATION DE L'ADMINISTRATEUR -->
 					<div class="authentification">
 						<form  id="FrmAuthAdmin" class="col-xs-12 col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4 col-lg-offset-4 col-lg-4" action="" method="POST" role="form">
@@ -342,8 +360,7 @@
 							</div>
 						</form>
 					</div>
-				</div>
-								
+				</div>			
 			</div>
 			
 		<script src="dist/js/vendor/jquery.min.js"></script>

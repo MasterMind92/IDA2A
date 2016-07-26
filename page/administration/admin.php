@@ -1,46 +1,33 @@
 <?php  
-	/*session_start();
+	session_start();
 
-	//connexion a la base de donnees  
-	include('../../app/connexpdo.php');
-	$idcom= connexpdo("ProjetIDA2A");
+	$host="localhost";
+$base="coordonnees";
+$user="MasterMind";
+$pass="youngmoney1992";
 
-	//initialisation de la requete 
+$MARKERS = array();
+$marker = array('numMark' => 0,'nomMark' => "",'latMark' => 0,'lngMark' => 0 );
 
-	$requete="SELECT * FROM Compte LIMIT 4";
+$idcom = new PDO("mysql:host=".$host.";dbname=".$base,$user,$pass);
 
-	$result = $idcom->query($requete);
+$requete="SELECT * FROM Marker"; 
+$result=$idcom->query($requete);
+$i=0;
 
+//extraction des infos sur tous les markers
 
-
-	$valeurs = array();
-	$users = array(''=>'',''=>'',''=>'',);
-
+while ($ligne=$result->fetch(PDO::FETCH_ASSOC)) {
 	
+	foreach ($ligne as $key => $value) {
+		$marker[$key]=$value;	
+	}
 
-	//Importation des classes 
+	$MARKERS[$i]= $marker;
+	$i++;
 
-	include('../../app/Class.php');
-
-	$i=0;
-		while ($ligne=$result->fetch(PDO::FETCH_NUM)) {
-			
-			foreach ($ligne as  $value) {
-
-				$num=$ligne[0];	
-				$lib=$ligne[1];	
-				$login=$ligne[2];	
-				$mdp=$ligne[3];	
-
-				$utilisateur= new User($num,$lib,$login,$mdp);
-
-				$users[$i]=$utilisateur;						
-				$i++; 
-			}
-			
-		}*/
+}
 ?>
-
 
 <!DOCTYPE html>
 <html lang="FR">
@@ -48,26 +35,145 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBTC8cIfqIXdxrPWK5qo8NzAlfINAVaOyo"></script>
+		<script  src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBTC8cIfqIXdxrPWK5qo8NzAlfINAVaOyo&signed_in=true&callback=initMap" async defer></script>
+		<!-- jQuery (necessary for Flat UI's JavaScript plugins) -->
+    <script src="../IDA2A/dist/js/vendor/jquery.min.js"></script>
 		<script>
-		
-		function initialize() {
+		var Markers=[];
+			
+			function initMap() {
 
-		  var mapProp = {
-		    center: new google.maps.LatLng(5.3096600,-4.0126600),
-		    zoom:10,
-		    mapTypeId:google.maps.MapTypeId.ROADMAP
-		  };
-		  var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+		      var map = new google.maps.Map(document.getElementById('googleMap'), {
+		        zoom: 12,
+		        center: new google.maps.LatLng(5.3096600,-4.0126600)
+		      });
+
+		      Load(map);
+
+		      var geocoder = new google.maps.Geocoder();
+
+		      document.getElementById('affiche').addEventListener('click', function() {
+		        geocodeAddress(geocoder, map);
+		      });
+
+		      document.getElementById('Marquer').addEventListener('click', function() {
+		        Mark(geocoder, map);
+		      });
+		    }
+
+		    
+		    function geocodeAddress(geocoder, resultsMap) {
+	
+		      var address = document.getElementById('adresse').value;
+
+
+		      
+		      geocoder.geocode({'address': address}, function(results, status){
+		        
+		        if (status === google.maps.GeocoderStatus.OK) {
+		          
+		          resultsMap.setCenter(results[0].geometry.location);
+		          resultsMap.setZoom(16);
+
+		          document.getElementById('Lng').value=resultsMap.getCenter(results[0].geometry.location).lng();
+		          document.getElementById('Lat').value=resultsMap.getCenter(results[0].geometry.location).lat();
+		        
+		        } else  {
+
+		          alert('Geocode was not successful for the following reason: ' + status);
+		        
+		        }
+		    	});
+		    }
+
+		    //fonction de recuperation des coordonnees pendant evenement drag
+
+		    function setposition(marker){
+
+		    	var pos=marker.getPosition();
+
+		    	 document.getElementById('Lng').value=pos.lng();
+		         document.getElementById('Lat').value=pos.lat();
+		    }
+
+
+
+		    //fonction de marquage des endroits geocoder
+
+
+		    function Mark (geocoder, map) {
+		    	var address = document.getElementById('adresse').value;
+
+	    	    geocoder.geocode({'address': address}, function(results, status) {
+	        
+			        if (status === google.maps.GeocoderStatus.OK) {
+			        	 
+			          var marker = new google.maps.Marker({
+			            map: map,
+			            position: results[0].geometry.location,
+			            draggable: true,
+				        animation: google.maps.Animation.DROP
+			          });
+
+	          	google.maps.event.addListener(marker,'drag',function () {
+				      	 	 setposition(marker);
+				      });
+			      	}
+			    });
+			}
+
 		
-		}
-		google.maps.event.addDomListener(window, 'load', initialize);
+			function Load (map) {
+
+	    		var tabLat=[],tabLng=[],i,j;
+
+	    		<?php  
+	    			for ($i = 0; $i < count($MARKERS); $i++) {
+	    		
+	    			echo "tabLat[".$i."]=".$MARKERS[$i]['latMark']." ;";
+	    			echo "tabLng[".$i."]=".$MARKERS[$i]['lngMark']." ;";
+	    		
+	    			}
+
+	    		?>
+
+				for ( j = 0; j < <?php echo count($MARKERS);?> ; j++) {
+
+					var marker = new google.maps.Marker({
+			            map: map,
+			            position: new google.maps.LatLng( tabLat[j] ,tabLng[j]),
+			            draggable: true,
+			            animation: google.maps.Animation.DROP
+			          });
+				}
+			}
+
+
+		   
+		$(function () {
+
+			$('#submit').click(function (e) {
+
+	    		e.preventDefault();
+
+	    		var Lat = $('form').find('input[name=\'Lat\']').val();
+	    		var Lng = $('form').find('input[name=\'Lng\']').val();
+	    		var Nom = $('form').find('input[name=\'nom\']').val();
+	    		
+
+	    		$.post("traitement.php",{nom:Nom,Lat:Lat,Lng:Lng},function (data) {
+	    			 alert(data);
+	    		});
+	    			
+	    	});
+
+		});
 
 		</script>
-		<title>Title Page</title>
+		
 
 		<!-- Bootstrap CSS -->
-		<title>Admin</title>
+		<title>Administration </title>
 		<link rel="stylesheet" type="text/css" href="../IDA2A/dist/css/vendor/bootstrap/css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="../IDA2A/dist//css/flat-ui.min.css">
     	<link rel="shortcut icon" href="../IDA2A/page/administration/images/favicon.ico">
@@ -104,7 +210,6 @@
 	<div class="row">
 		<div class="col-md-offset-1 col-lg-offset-1 col-md-10 col-lg-10">
 			<nav class="navbar navbar-orange navbar-embossed">
-				
 				<form role="search" class="navbar-form navbar-right">
   					<div class="form-group">
   					<a href="" id="theme"><img src="../IDA2A/page/administration/images/theme.png"></a> 
@@ -113,6 +218,7 @@
   					<button class="btn btn-orange" type="submit">Valider</button>
 				</form>
 			</nav>
+			
 			<div class="row">
 				<div class="col-md-12 col-lg-12">
 					<nav class="navbar navbar-orange">
@@ -152,10 +258,71 @@
 					<!--div contenant les contenu de tous les onglets-->
 					<!--contenu de la page d'accueil-->
 						<!--au lancement de la page d'accueil-->
-						
-	 				<div id="googleMap"  style="height:700px;" class="col-md-12 col-lg-12">
+						<div class=" col-xs-12  col-sm-12  col-md-12  col-lg-12 google">
+							<form action="" class="form-horizontal  " method="POST" role="form">
+								<legend class="text-center">Formulaire d'insertion de marqueurs </legend>
+							
+								<!-- -->
+								<div class="form-group">
+									<div class="row">
+										<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+											<label for="Lat">Latitude </label>
+										</div>
+										<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+											<input type="text" class="form-control" id="Lat" disabled name="Lat" placeholder="">
+										</div>
+									</div>
+								</div>
+
+								<!-- -->
+								<div class="form-group">
+									<div class="row">
+										<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+											<label for="Lng">Longitutde</label>
+										</div>
+										<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+											<input type="text" class="form-control" id="Lng"  disabled name="Lng" placeholder="">
+										</div>
+									</div>
+								</div>
+
+								<!-- -->
+								<div class="form-group">
+									<div class="row">
+										<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+											<label for="nom">Nom Ville</label>
+										</div>
+										<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+											<input type="text" class="form-control" id="adresse"   name="nom" placeholder="" value="Abidjan">
+										</div>
+									</div>
+								</div>
+								
+								<!-- -->
+								<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+									<button  type="button"  id="affiche" class="btn btn-primary btn-block">Afficher</button>
+								</div>
+
+								<!-- -->
+								<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+									<button  type="button"  id="Marquer" class="btn btn-success btn-block">Marquer</button>
+								</div>
+
+								<!-- -->
+								<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+									<button  type="submit"  id="submit" class="btn btn-danger btn-block">Soumettre</button>
+								</div>
+								
+							</form>
+							<div id="googleMap" class="col-lg-12" style="height:450px;"></div>
+						</div>
+
 						
 					</div>
+
+					
+					
+					
 				
 					<div class="Start col-md-12 col-lg-12">
 						<div class="col-md-6 col-lg-6">
@@ -427,8 +594,7 @@
 	</footer>
 
 	
-		<!-- jQuery (necessary for Flat UI's JavaScript plugins) -->
-    <script src="../IDA2A/dist/js/vendor/jquery.min.js"></script>
+		
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="../IDA2A/dist/js/vendor/video.js"></script>
     <script src="../IDA2A/dist/js/flat-ui.min.js"></script>

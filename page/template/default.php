@@ -161,15 +161,6 @@ if (!isset($_SESSION['erreur'])) {
     <script src="dist/js/flat-ui.min.js"></script>
     
     <script type="text/javascript">
-      
-      var map;
-      
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -34.397, lng: 150.644},
-          zoom: 8
-        });
-      }
 
       $(function () {
         $('#Accueil > div:nth(1)').css({

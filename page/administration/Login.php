@@ -3,16 +3,18 @@
 	//gestion des variables de session 
 	
 
-
 	//connexion a la base de donnees  
-	include('../../app/connexpdo.php');
-	$idcom= connexpdo("ProjetIDA2A");
+	include_once('../../app/connexpdo.php');
+	$idcom= connexpdo();
+	
+	$req=$idcom->query("SELECT * FROM utilisateur");
+
+		
+	$result= $req->fetchObject();
+
+	
 
 	//initialisation de la requete 
-
-	$requete="SELECT * FROM Compte LIMIT 4";
-
-	$result = $idcom->query($requete);
 
 	$valeurs = array();
 	$users = array(''=>'',''=>'',''=>'',);
@@ -53,10 +55,13 @@
 
 		<table border='1'>
 			<?php 
-				$i=0;
-				while ($ligne=$result->fetch(PDO::FETCH_NUM)) {
+
+				
+				var_dump($result);
+				/*$i=0;
+				while ($ligne=$result->fetchObject()) {
 					
-					foreach ($ligne as  $value) {
+					foreach ($ligne as $key->$value) {
 
 						$num=$ligne[0];	
 						$lib=$ligne[1];	
@@ -69,7 +74,7 @@
 						$i++; 
 					}
 					
-				}
+				}*/
 			 ?>
 		</table>	
 		

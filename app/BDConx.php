@@ -3,5 +3,5 @@
 	define('MYUSER', 'root');
 	define('MYPASS', '');
 
-	$base= "ProjetIDA2A";
+	define('BASE','projetbdd');
  ?>

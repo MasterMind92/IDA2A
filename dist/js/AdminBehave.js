@@ -41,13 +41,13 @@ $(function () {
 		 $('#koumassi').slideUp(500);
 		 $('#treichville').slideUp(500);
 		 $('#attecoube').slideUp(500);
-		 $("#googleMap").slideDown(500);
+		 $(".google").slideDown(500);
 	})
 	
 	/* EVENEMENT CLICK SUR LE BOUTON INFOS GENERALES */	
 
 	$("ul.dropdown-menu:eq(0) li:first > a").click(function () {
-		 $("#googleMap").slideUp(500);
+		 $(".google").slideUp(500);
 		 $(".Suggestion").slideUp(500);
 		 $(".Zone").slideUp(500);
 		 $('#abobo').slideUp(500);
@@ -68,7 +68,7 @@ $(function () {
 	/* EVENEMENT CLICK SUR LE BOUTON INFOS PAR ZONE  */	
 
 	$("ul.dropdown-menu:eq(0) li:eq(1) > a").click(function () {
-		 $("#googleMap").slideUp(500);
+		 $(".google").slideUp(500);
 		 $(".Start").slideUp(500);
 		 $(".Suggestion").slideUp(500);
 		 $('#abobo').slideUp(500);
@@ -88,7 +88,7 @@ $(function () {
 	/* EVENEMENT CLICK SUR LE BOUTON SUGGESTION */	
 
 	$("ul.dropdown-menu:eq(1) li:first > a").click(function () {
-		 $("#googleMap").slideUp(500);
+		 $(".google").slideUp(500);
 		 $(".Start").slideUp(500);
 		 $(".Zone").slideUp(500);
 		 $('#abobo').slideUp(500);
@@ -108,7 +108,7 @@ $(function () {
 	/* EVENEMENT CLICK SUR LA ZONE ABOBO */
 	
 	$("#ab").click(function () {
-		 $("#googleMap").slideUp(500);
+		 $(".google").slideUp(500);
 		 $(".Start").slideUp(500);
 		 $(".Zone").slideUp(500);
 		 $(".Suggestion").slideUp(500);
@@ -128,7 +128,7 @@ $(function () {
 	/* EVENEMENT CLICK SUR LA ZONE ADJAME */
 	
 	$("#ad").click(function () {
-		 $("#googleMap").slideUp(500);
+		 $(".google").slideUp(500);
 		 $(".Start").slideUp(500);
 		 $(".Zone").slideUp(500);
 		 $(".Suggestion").slideUp(500);
@@ -148,7 +148,7 @@ $(function () {
 	/* EVENEMENT CLICK SUR LA ZONE ANYAMA */
 	
 	$("#an").click(function () {
-		 $("#googleMap").slideUp(500);
+		 $(".google").slideUp(500);
 		 $(".Start").slideUp(500);
 		 $(".Zone").slideUp(500);
 		 $(".Suggestion").slideUp(500);
@@ -168,7 +168,7 @@ $(function () {
 	/* EVENEMENT CLICK SUR LA ZONE COCODY */
 	
 	$("#co").click(function () {
-		 $("#googleMap").slideUp(500);
+		 $(".google").slideUp(500);
 		 $(".Start").slideUp(500);
 		 $(".Zone").slideUp(500);
 		 $(".Suggestion").slideUp(500);
@@ -188,7 +188,7 @@ $(function () {
 	/* EVENEMENT CLICK SUR LA ZONE PLATEAU */
 	
 	$("#pl").click(function () {
-		 $("#googleMap").slideUp(500);
+		 $(".google").slideUp(500);
 		 $(".Start").slideUp(500);
 		 $(".Zone").slideUp(500);
 		 $(".Suggestion").slideUp(500);
@@ -208,7 +208,7 @@ $(function () {
 	/* EVENEMENT CLICK SUR LA ZONE MARCORY */
 	
 	$("#ma").click(function () {
-		 $("#googleMap").slideUp(500);
+		 $(".google").slideUp(500);
 		 $(".Start").slideUp(500);
 		 $(".Zone").slideUp(500);
 		 $(".Suggestion").slideUp(500);
@@ -228,7 +228,7 @@ $(function () {
 	/* EVENEMENT CLICK SUR LA ZONE PORT-BOUET */
 	
 	$("#po").click(function () {
-		 $("#googleMap").slideUp(500);
+		 $(".google").slideUp(500);
 		 $(".Start").slideUp(500);
 		 $(".Zone").slideUp(500);
 		 $(".Suggestion").slideUp(500);
@@ -248,7 +248,7 @@ $(function () {
 	/* EVENEMENT CLICK SUR LA ZONE YOPOUGON */
 	
 	$("#yo").click(function () {
-		 $("#googleMap").slideUp(500);
+		 $(".google").slideUp(500);
 		 $(".Start").slideUp(500);
 		 $(".Zone").slideUp(500);
 		 $(".Suggestion").slideUp(500);
@@ -268,7 +268,7 @@ $(function () {
 	/* EVENEMENT CLICK SUR LA ZONE KOUMASSI */
 	
 	$("#ko").click(function () {
-		 $("#googleMap").slideUp(500);
+		 $(".google").slideUp(500);
 		 $(".Start").slideUp(500);
 		 $(".Zone").slideUp(500);
 		 $(".Suggestion").slideUp(500);
@@ -288,7 +288,7 @@ $(function () {
 	/* EVENEMENT CLICK SUR LA ZONE TREICHVILLE */
 	
 	$("#tr").click(function () {
-		 $("#googleMap").slideUp(500);
+		 $(".google").slideUp(500);
 		 $(".Start").slideUp(500);
 		 $(".Zone").slideUp(500);
 		 $(".Suggestion").slideUp(500);
@@ -308,7 +308,7 @@ $(function () {
 	/* EVENEMENT CLICK SUR LA ZONE ATTECOUBE */
 	
 	$("#at").click(function () {
-		 $("#googleMap").slideUp(500);
+		 $(".google").slideUp(500);
 		 $(".Start").slideUp(500);
 		 $(".Zone").slideUp(500);
 		 $(".Suggestion").slideUp(500);
@@ -328,7 +328,7 @@ $(function () {
 	//EVENEMENT CLICK SUR BOUTON RETOUR
 
 	$(".back").click(function () {
-		 $("#googleMap").slideUp(500);
+		 $(".google").slideUp(500);
 		 $(".Start").slideUp(500);
 		 $(".Suggestion").slideUp(500);
 		 $('#abobo').slideUp(500);
@@ -383,8 +383,28 @@ $(function () {
 	})
 
 
+
+	$('#submit').click(function (e) {
+
+    		e.preventDefault();
+
+    		var Lat = $('form').find('input[name=\'Lat\']').val();
+    		var Lng = $('form').find('input[name=\'Lng\']').val();
+    		var Nom = $('form').find('input[name=\'nom\']').val();
+    		
+
+    		$.post("traitement.php",{nom:Nom,Lat:Lat,Lng:Lng},function (data) {
+    			 alert(data);
+    		});
+    			
+    	});
+
 	/******************************************************************************
 	* 				REQUETE AJAX DES SOUMISSION DES FORMULAIRES 
+	*******************************************************************************/
+
+	/******************************************************************************
+	* 				COMPORTEMENT DE LA CARTE EN ADMINISTRATION 	 
 	*******************************************************************************/
 
 	

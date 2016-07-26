@@ -138,7 +138,9 @@ $(function () {
 		 //effectuation de la requete 
 
 		$.post("../IDA2A/app/Traitement.php",{login:login, mdp:mdp},function (data) {
-			 if (data=="ok") {
+			
+			if (data=="ok") {
+			 	
 			 	$("#Admin .authentification").hide("clip");
 			 	$("#Admin .formInput").show(500);
 			 	$(this).add(".form-group",".authentification").removeClass("has-error");
@@ -147,10 +149,13 @@ $(function () {
 			 	// reinitialisation des champs 
 			 	form.find("input[name='login']").val("");
 			 	form.find("input[name='mdp']").val("");
+			 	
+
 			 }else {
 
 				$(this).add(".form-group",".authentification").addClass("has-error");			 	
 			 }
+			 
 		});
 
 
@@ -161,8 +166,8 @@ $(function () {
 	/************************************************************************************
 	*	PARTIE DU SCRIPT RELATIVE AUX POSTAGE DES FORMULAIRES PAR REQUETES AJAX 
 	*************************************************************************************/
-
-	$("#internaute .formInput ").bind("submit",function (event) {
+	
+	$(".Sugg .formInput ").bind("submit",function (event) {
 		
 		//Arret du postage de formulaire normal 
 		event.preventDefault();
@@ -171,11 +176,31 @@ $(function () {
 
 		//reception des infos du formulaire 
 		infos = $(this).find("textarea").val();
-		
 
-		$.post("../IDA2A/app/Traitement.php",{suggestion:infos},function (data) {
-			 $("#internaute .formInput").hide(500);
-			 $(".panel").show(500);
+		$.post("../IDA2A/app/Traitement.php",{Commentaire:infos},function (data){
+			
+			 	alert(data);
+		});
+
+	});
+
+	/************************************************************************************
+	* 
+	****************************************************************************
+	*********/
+
+	$(".formInput ").bind("submit",function (event) {
+		
+		//Arret du postage de formulaire normal 
+		event.preventDefault();
+
+		var form= $(this);
+
+		//reception des infos du formulaire 
+
+		$.post("../IDA2A/app/Traitement.php", $(this).serialize(),function (data){
+			
+			 	alert(data);
 		});
 
 	});

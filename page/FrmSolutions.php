@@ -4,17 +4,13 @@
 	<div>
 		<h2 align="center"> Indications </h2>
 		<p> 
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			
+			Sur cette page vous pourrez soumettre une suggestion aux autorites competentes via le formulaire se trouvant ci-dessous.
 		</p>
 	</div>
 
 	<div>
-		<h2 align="center"> Indiquez votre solution ici </h2>
+		<h2 align="center"> Selectionnez votre profil d'utiliisateur  </h2>
 	</div>
 	<div class="form-group">
 		<div class="row">
@@ -42,11 +38,14 @@
 			</div>
 		</div>		
 	</div>
-	<div id="internaute">
+	<div id="internaute" class="Sugg">
 		<form action=""  method="POST" class=" suggestion form-horizontal formInput" role="form">
+			
+			<!--  -->
+
 			<div class="form-group">
 				<div class="row">
-					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<div class="  col-xs-offset-1 col-xs-11 col-sm-offset-1  col-sm-11 col-md-offset-1 col-md-11 col-lg-offset-1 col-lg-11">
 						
 						<textarea class="form-control" rows="5" cols="90" placeholder="Vos commentaires..." name="Commentaire" ></textarea>
 
@@ -55,7 +54,7 @@
 			</div>
 	
 			<div class="form-group">
-				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+				<div class=" col-xs-offset-1 col-xs-6  col-sm-offset-1 col-sm-6  col-md-offset-1 col-md-6  col-lg-offset-1 col-lg-6">
 					<button type="submit" class="btn btn-block btn-primary">Submit</button>
 				</div>
 			</div>
@@ -70,13 +69,13 @@
 				  </div>
 				  <div class="panel-body succes">
 						Le formulaire a ete soumis avec succes <span class="glyphicon glyphicon-ok "></span> 
-						<button type="button" class="btn btn-success">OK</button>
+						<a type="button" href="accueil" class="btn btn-success">OK</a>
 				  </div>
 			</div>
 		</div>
 	</div>
 
-	<div id="exploit">
+	<div id="exploit" class="Sugg">
 		<div class="authentification">
 			<form id="FrmAuthExp" class="col-xs-12 col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4 col-lg-offset-4 col-lg-4" action="/" method="POST" role="form">
 				<legend> Veuillez vous identifier</legend>
@@ -112,7 +111,7 @@
 		</div>	
 	</div>	
 
-	<div id="Admin">
+	<div id="Admin" class="Sugg">
 		<div class="authentification">
 			<form id="FrmAuthAdmin" class=" col-xs-12 col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4 col-lg-offset-4 col-lg-4" action="/" method="POST" role="form">
 				<legend> Veuillez vous identifier</legend>
@@ -130,7 +129,7 @@
 		<div class="formInput">
 			<form action="" method="POST" class="suggestion form-horizontal" role="form">
 					
-					<div class="form-group">
+				<div class="form-group">
 					<div class="row">
 						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 							

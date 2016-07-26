@@ -1,24 +1,28 @@
 <?php 
 
 // Fonction de connexion 
+include_once('BDConx.php');
+function connexpdo(){
+	
 
-function connexpdo($base){
-	include_once('BDConx.php');
-
-	$dsn = "mysql:host=".MYHOST."; dbname=".$base;
-	$user = MYUSER;
-	$pass = MYPASS;
-
-
+	
+	$dsn = "mysql:host=".MYHOST."; dbname=".BASE."";
+	
 	try {
 		
-		$idcom = new PDO($dsn,$user,$pass);
+		$idcom = new PDO($dsn,MYUSER,MYPASS);
+		$idcom->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+		$idcom->query("SET NAMES UTF8");
 		return $idcom;
+		
 
 	} catch (PDOexception $e) {
 		echo"Echec de la connexion ".$except-> getMessage();
 		return FALSE;
-		exit();
+		
 	}
+	
 }
+
+	
  ?>

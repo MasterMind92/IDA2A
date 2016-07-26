@@ -36,7 +36,7 @@ creation de la base de donnees
 create database projetIDA2A 
 use ProjetIDA2A
 
-1- creer les tables ou il n'y a pas de ;igration de cle etrangere 
+1- creer les tables ou il n'y a pas de migration de cle etrangere 
 
 2-creer un utilisateur 
 create user <nom utilisateur>@<serveur> identified by <mot de passe >
@@ -65,4 +65,12 @@ $cnx = new PDO($dsn,$user,$pass);
 
 
 ecrire un programme php qui met a jour les intervention en fonction des incidents 
+
+format de la chaine de caractere num indident
+
+deux dernier digit de l'annee / id incident/id de la zone/ les deux premiers digits de la commune
+
+format de num_interv
+deux digit du mois et les 2derniers digits de l'annee (date de debut)/ id_intervention/ id_incident
+
 
