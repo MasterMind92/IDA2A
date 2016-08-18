@@ -19,25 +19,36 @@
 				<fieldset >
 					<legend>Profil</legend>
 				
-					
-					<label>
-						<input type="radio" name="profil" id="input" value="Exploitant">
-						Exploitant
-					</label>
-
 					<label>
 						<input type="radio" name="profil" id="input" value="Internaute">
 						Internaute
 					</label>
 
 					<label>
-						<input type="radio" name="profil" id="input" value="Admin">
-						Administrateur
+						<input type="radio" name="profil" id="input" value="Autres">
+						Autres
 					</label>
+
 				</fieldset>
 			</div>
 		</div>		
 	</div>
+
+	<!-- FORMULAIRE DE CHOIX DE PROFIL AUTRE QU'INTERNAUTE -->
+
+	<div class="row">
+		
+		<div class="col-xs-4 col-sm-4 col-md-offset-4 col-md-4 col-lg-offset-4 col-lg-4" id="Profil">
+			
+			<select name="profil" class="form-control" required="required">
+				<option value=-1> Choisissez votre profil </option>
+				<option value="Exploitant">Exploitant</option>
+				<option value="Administrateur">Administrateur</option>
+			</select>
+		
+		</div>
+	</div>
+
 	<div id="internaute" class="Sugg">
 		<form action=""  method="POST" class=" suggestion form-horizontal formInput" role="form">
 			

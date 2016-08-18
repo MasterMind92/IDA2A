@@ -1,32 +1,65 @@
 <?php  
 	session_start();
 
-	$host="localhost";
-$base="coordonnees";
-$user="MasterMind";
-$pass="youngmoney1992";
+	include_once('../../app/connexpdo.php');
+	$idcom= connexpdo();
 
-$MARKERS = array();
-$marker = array('numMark' => 0,'nomMark' => "",'latMark' => 0,'lngMark' => 0 );
+	$MARKERS = array();
+	/*$marker = array('numMark' => 0,'nomMark' => "",'latMark' => 0,'lngMark' => 0 );*/
 
-$idcom = new PDO("mysql:host=".$host.";dbname=".$base,$user,$pass);
 
-$requete="SELECT * FROM Marker"; 
-$result=$idcom->query($requete);
-$i=0;
+	$requete="SELECT * FROM incident WHERE longitude=0 AND lattitude=0"; 
 
-//extraction des infos sur tous les markers
+	$resIncident=$idcom->query($requete);
 
-while ($ligne=$result->fetch(PDO::FETCH_ASSOC)) {
+	/* 
+	$i=0;
+
+	//extraction des infos sur tous la localisation des marqueurs sur la carte 
+
+	while ($ligne=$result->fetch(PDO::FETCH_ASSOC)) {
+		
+		foreach ($ligne as $key => $value) {
+			$marker[$key]=$value;	
+		}
+
+		$MARKERS[$i]= $marker;
+		$i++;
+
+	}*/
+
+	//processus d'authentification des utilisateurs
+
+	//connexion a la base de donnees  
 	
-	foreach ($ligne as $key => $value) {
-		$marker[$key]=$value;	
+	
+	$req=$idcom->query("SELECT * FROM utilisateur");
+
+	$user = array();
+
+	while ($result= $req->fetchAll(PDO::FETCH_NUM)) {
+	 	$user= $result;
 	}
 
-	$MARKERS[$i]= $marker;
-	$i++;
+	/*if (isset($_POST['login']) AND isset($_POST['mdp'])) {
+		$ok;
 
-}
+		for ($i=0; $i < count($user) ; $i++) { 
+
+			if (in_array($_POST['login'], $user[$i]) AND in_array($_POST['mdp'], $user[$i])) {
+				$ok=true;	
+			}else{
+
+				echo "ouais c pa bon ";
+				/*header("Location:identification");
+			}
+
+		}	
+		
+	}*/
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -37,7 +70,8 @@ while ($ligne=$result->fetch(PDO::FETCH_ASSOC)) {
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<script  src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBTC8cIfqIXdxrPWK5qo8NzAlfINAVaOyo&signed_in=true&callback=initMap" async defer></script>
 		<!-- jQuery (necessary for Flat UI's JavaScript plugins) -->
-    <script src="../IDA2A/dist/js/vendor/jquery.min.js"></script>
+    	<script src="../IDA2A/dist/js/vendor/jquery.min.js"></script>
+    
 		<script>
 		var Markers=[];
 			
@@ -48,7 +82,7 @@ while ($ligne=$result->fetch(PDO::FETCH_ASSOC)) {
 		        center: new google.maps.LatLng(5.3096600,-4.0126600)
 		      });
 
-		      Load(map);
+		      /*Load(map);
 
 		      var geocoder = new google.maps.Geocoder();
 
@@ -58,11 +92,11 @@ while ($ligne=$result->fetch(PDO::FETCH_ASSOC)) {
 
 		      document.getElementById('Marquer').addEventListener('click', function() {
 		        Mark(geocoder, map);
-		      });
+		      });*/
 		    }
 
 		    
-		    function geocodeAddress(geocoder, resultsMap) {
+		    /*function geocodeAddress(geocoder, resultsMap) {
 	
 		      var address = document.getElementById('adresse').value;
 
@@ -147,7 +181,7 @@ while ($ligne=$result->fetch(PDO::FETCH_ASSOC)) {
 			          });
 				}
 			}
-
+*/
 
 		   
 		$(function () {
@@ -216,15 +250,33 @@ while ($ligne=$result->fetch(PDO::FETCH_ASSOC)) {
     				<input type="text" placeholder="Search" class="form-control">
   					</div>
   					<button class="btn btn-orange" type="submit">Valider</button>
+  					<a class="btn btn-orange" data-toggle="modal" href='#Aide'>Aide</a>
 				</form>
 			</nav>
 			
+			<div class="modal fade" id="Aide">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+								<h4 class="modal-title">Administration: Mode d'emploi</h4>
+							</div>
+							<div class="modal-body">
+								La premiere page de l'administration sert renseigner les coordonnees geographique des differents incident signales sur le site. <br>A part &ccedil;a les autres onglets servent a consulter les informations.
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
 			<div class="row">
 				<div class="col-md-12 col-lg-12">
 					<nav class="navbar navbar-orange">
 						<a class="navbar-brand" href="accueil"><img id="ita" src="../IDA2A/page/administration/images/ita.png"></a>
 						<a class="navbar-brand txt-bv" >ACCUEIL</a>
-						<div class="btn-group col-md-2 col-lg-2">
+						<div class="btn-group col-md-3 col-lg-3">
   							<button class="btn btn-orange dropdown-toggle" type="button" data-toggle="dropdown">
     							INFORMATION<span class="caret"></span>
   							</button>
@@ -233,7 +285,7 @@ while ($ligne=$result->fetch(PDO::FETCH_ASSOC)) {
     							<li><a>Informations par zone</a></li>
   							</ul>
 						</div>
-						<div class="btn-group col-md-2 col-lg-2">
+						<div class="btn-group col-md-3 col-lg-3">
   							<button class="btn btn-orange dropdown-toggle" type="button" data-toggle="dropdown">
     							SUGGESTION<span class="caret"></span>
   							</button>
@@ -241,7 +293,7 @@ while ($ligne=$result->fetch(PDO::FETCH_ASSOC)) {
     							<li><a >Suggestions publiques</a></li>
   							</ul>
 						</div>
-						<div class="btn-group col-md-2 col-lg-2">
+						<div class="btn-group col-md-3 col-lg-3">
   							<button class="btn btn-orange dropdown-toggle" type="button" data-toggle="dropdown">
     							STATISTIQUE<span class="caret"></span>
   							</button>
@@ -250,15 +302,52 @@ while ($ligne=$result->fetch(PDO::FETCH_ASSOC)) {
     							<li><a >Statistiques par zone</a></li>
   							</ul>
 						</div>
-						<a class="navbar-brand txt-bv" >HISTORIQUE</a>
 					</nav>
+				</div>
 
 				<!-- Structure du contenu-->
 					<div class="contenu col-md-12 col-lg-12">
 					<!--div contenant les contenu de tous les onglets-->
 					<!--contenu de la page d'accueil-->
 						<!--au lancement de la page d'accueil-->
-						<div class=" col-xs-12  col-sm-12  col-md-12  col-lg-12 google">
+						<div class=" col-xs-12  col-sm-12  col-md-12  col-lg-12 googleMap">
+							<div class="row">
+								<!-- <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+									<h3 align="center">Liste des incidents non-renseignes</h3>
+
+									<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+										
+									</div>
+									<div class="panel panel-info">
+										  <div class="panel-heading">
+												<h3 class="panel-title">Panel title</h3>
+										  </div>
+										  <div class="panel-body">
+												Panel content
+										  </div>
+									</div> -->
+									<?php  
+/*
+									while ($obj=$resIncident->fetchObject()) {
+										
+										echo "<div class=\"panel panel-info\">";
+										echo "<div class=\"panel-heading\">";
+										echo "<h3 class=\"panel-title\">".$obj->num_incident."</h3>";
+										echo "</div>";
+										echo "<div class=\"panel-body\">";
+										echo "";
+										echo "</div>";
+										echo "</div>";
+										var_dump($obj);
+									}*/
+
+									
+									?>
+
+								<!-- </div>-->
+							</div> 
+
+							
 							<form action="" class="form-horizontal  " method="POST" role="form">
 								<legend class="text-center">Formulaire d'insertion de marqueurs </legend>
 							
@@ -314,269 +403,44 @@ while ($ligne=$result->fetch(PDO::FETCH_ASSOC)) {
 								</div>
 								
 							</form>
-							<div id="googleMap" class="col-lg-12" style="height:450px;"></div>
+							<div id="google" class="col-lg-12" style="height:450px;"></div>
 						</div>
 
-						
 					</div>
 
 					
-					
-					
-				
-					<div class="Start col-md-12 col-lg-12">
-						<div class="col-md-6 col-lg-6">
-							<div class="col-md-12 col-lg-12">
-								<div class="col-md-3 col-lg-3">
-									<img src="#" class="img-responsive" alt="Image">
-								</div>
-								<div class="col-md-9 col-lg-9">
-									Date: <br>
-									Pseudo: <br>
-									Zone: <br>
-									Incident: <br>
-								
-								</div>
-							</div>
-							<div class="col-md-12 col-lg-12">
-								<div class="col-md-3 col-lg-3">
-									<img src="#" class="img-responsive" alt="Image">
-								</div>
-								<div class="col-md-9 col-lg-9">
-									Date: <br>
-									Pseudo: <br>
-									Zone: <br>
-									Incident: <br>
+					<div>
+
+						<!--contenu de la page info generale-->
+					<?php  
+						include 'infgene.php';
+										
+					//contenu de la page d'info zone 
+					  
+						include 'infzone.php';
 									
-								</div>
-							</div>
-							<div class="col-md-12 col-lg-12">
-								<div class="col-md-3 col-lg-3">
-									<img src="#" class="img-responsive" alt="Image">
-								</div>
-								<div class="col-md-9 col-lg-9">
-									Date: <br>
-									Pseudo: <br>
-									Zone: <br>
-									Incident: <br>
-								
-								</div>
-							</div>
-							<div class="col-md-12 col-lg-12">
-								<div class="col-md-3 col-lg-3">
-									<img src="#" class="img-responsive" alt="Image">
-								</div>
-								<div class="col-md-9 col-lg-9">
-									Date: <br>
-									Pseudo: <br>
-									Zone: <br>
-									Incident: <br>
-									
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6 col-lg-6">
-							<div class="col-md-12 col-lg-12">
-								<div class="col-md-3 col-lg-3">
-									<img src="#" class="img-responsive" alt="Image">
-								</div>
-								<div class="col-md-9 col-lg-9">
-									Date: <br>
-									Pseudo: <br>
-									Zone: <br>
-									Incident: <br>
-								
-								</div>
-							</div>
-							<div class="col-md-12 col-lg-12">
-								<div class="col-md-3 col-lg-3">
-									<img src="#" class="img-responsive" alt="Image">
-								</div>
-								<div class="col-md-9 col-lg-9">
-									Date: <br>
-									Pseudo: <br>
-									Zone: <br>
-									Incident: <br>
-								
-								</div>
-							</div>
-							<div class="col-md-12 col-lg-12">
-								<div class="col-md-3 col-lg-3">
-									<img src="#" class="img-responsive" alt="Image">
-								</div>
-								<div class="col-md-9 col-lg-9">
-									Date: <br>
-									Pseudo: <br>
-									Zone: <br>
-									Incident: <br>
-								
-								</div>
-							</div>
-							<div class="col-md-12 col-lg-12">
-								<div class="col-md-3 col-lg-3">
-									<img src="#" class="img-responsive" alt="Image">
-								</div>
-								<div class="col-md-9 col-lg-9">
-									Date: <br>
-									Pseudo: <br>
-									Zone: <br>
-									Incident: <br>
-								
-								</div>
-							</div>
-						</div>
-					</div>
-						
-					<!--contenu de la page d'info zone -->
-					<div class="Zone col-md-12 col-lg-12">
-						<div class="col-md-6 col-lg-6">
-							<h2 id="ab" class="alike text-center">ABOBO</h2>
-						</div>
-						<div class="col-md-6 col-lg-6">
-							<h2 id="ad" class="alike text-center">ADJAME</h2>
-						</div>
-						<div class="col-md-6 col-lg-6">
-							<h2 id="an" class="alike text-center">ANYAMA</h2>
-						</div>
-						<div class="col-md-6 col-lg-6">
-							<h2 id="at" class="alike text-center">ATTECOUBE</h2>
-						</div>
-						<div class="col-md-6 col-lg-6">
-							<h2 id="co" class="alike text-center">COCODY</h2>
-						</div>
-						<div class="col-md-6 col-lg-6">
-							<h2 id="ko" class="alike text-center">KOUMASSI</h2>
-						</div>
-						<div class="col-md-6 col-lg-6">
-							<h2 id="ma" class="alike text-center">MARCORY</h2>
-						</div>
-						<div class="col-md-6 col-lg-6">
-							<h2 id="pl" class="alike text-center">PLATEAU</h2>
-						</div>
-						<div class="col-md-6 col-lg-6">
-							<h2 id="po" class="alike text-center">PORT-BOUET</h2>
-						</div>
-						<div class="col-md-6 col-lg-6">
-							<h2 id="tr" class="alike text-center">TREICHVILLE</h2>
-						</div>
-						<div class="col-md-12 col-lg-12">
-							<h2 id="yo" class="alike text-center">YOPOUGON</h2>
-						</div>
-					</div>
-					
-					<!--contenu par zone -->
-					<?php 
+					//contenu par zone
+					 
 						include 'zone.html';
-					 ?>
+					
+					//contenu de la page des solutions public
+					 
+						include 'sugg.php';
+					 
+					//contenu des stat genérales
+					  
+						include 'statg.html';						
 
-					<!--contenu de la page des solutions public -->
-						<div class="Suggestion col-md-12 col-lg-12">
-							<table class="table table-striped table-hover">
-								<thead>
-									<tr>
-										<th></th>
-										<th class="text-center">SUGGESTIONS DU PUBLIQUE</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>
-											Date:02/08/93<br>
-											Pseudo:GENIE Civil<br>
-											Zone:Marcory<br>
-										</td>
-										<td>
-											Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-											tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-											quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-											consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-											cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-											proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-										</td>
-									</tr>
-									<tr>
-										<td>
-											Date:15/12/16<br>
-											Pseudo:Lola-bb<br>
-											Zone:Yopougon<br>
-										</td>
-										<td>
-											Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-											tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-											quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-											consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-											cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-											proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-										</td>
-									</tr>
-									<tr>
-										<td>
-											Date:30/03/16<br>
-											Pseudo:Pakinou<br>
-											Zone:Abobo<br>
-										</td>
-										<td>
-											Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-											tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-											quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-											consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-											cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-											proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-										</td>
-									</tr>
-									<tr>
-										<td>
-											Date:27/05/16<br>
-											Pseudo:maitre-aniv<br>
-											Zone:Koumassi<br>
-										</td>
-										<td>
-											Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-											tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-											quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-											consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-											cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-											proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-										</td>
-									</tr>
-									<tr>
-										<td>
-											Date:31/12/16<br>
-											Pseudo:Rosa La Rosière<br>
-											Zone:Plateau<br>
-										</td>
-										<td>
-											Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-											tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-											quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-											consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-											cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-											proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-										</td>
-									</tr>
-									<tr>
-										<td>
-											Date:06/01/16<br>
-											Pseudo:Kevko banana<br>
-											Zone:Port-bouet<br>
-										</td>
-										<td>
-											Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-											tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-											quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-											consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-											cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-											proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-										</td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
+					//contenu des stats par zone
+
+						include 'statz.html';
+
+					?>
 					</div>
-				</div>
 			</div>
 		</div>
-	</div>
+	</div>		
+					
 
 	<footer class="row">
 		<div class="col-md-offset-1 col-lg-offset-1 col-md-10 col-lg-10 navbar-orange">

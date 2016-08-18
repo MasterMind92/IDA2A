@@ -3,28 +3,18 @@
 	//gestion des variables de session 
 	
 
+
 	//connexion a la base de donnees  
-	include_once('../../app/connexpdo.php');
+	include('../../app/connexpdo.php');
 	$idcom= connexpdo();
-	
-	$req=$idcom->query("SELECT * FROM utilisateur");
-
-		
-	$result= $req->fetchObject();
-
-	
 
 	//initialisation de la requete 
 
-	$valeurs = array();
-	$users = array(''=>'',''=>'',''=>'',);
+	$requete="SELECT login,motdepasse FROM utilisateur ";
 
-	
+	$result = $idcom->query($requete);
 
-	//Importation des classes 
-
-	include('../../app/Class.php');
-
+	$users = array();
 
  ?>
 <!DOCTYPE html>
@@ -54,42 +44,24 @@
 		<div id="debugging">
 
 		<table border='1'>
-			<?php 
-
+		<?php 
+			$i=0;
+			while ($ligne=$result->fetchObject()) {
 				
-				var_dump($result);
-				/*$i=0;
-				while ($ligne=$result->fetchObject()) {
-					
-					foreach ($ligne as $key->$value) {
+				$users[$i]=$ligne;
+				$i++;
+			}
 
-						$num=$ligne[0];	
-						$lib=$ligne[1];	
-						$login=$ligne[2];	
-						$mdp=$ligne[3];	
 
-						$utilisateur= new User($num,$lib,$login,$mdp);
-
-						$users[$i]=$utilisateur;						
-						$i++; 
-					}
-					
-				}*/
-			 ?>
+		 ?>
 		</table>	
 		
 		</div>
 		<!-- jQuery (necessary for Flat UI's JavaScript plugins) -->
-	    <script src="IDA2A/dist/js/vendor/jquery.min.js"></script>
+	    <script src="../IDA2A/dist/js/vendor/jquery.min.js"></script>
 	    <!-- Include all compiled plugins (below), or include individual files as needed -->
 	    <script src="../IDA2A/dist/js/vendor/video.js"></script>
 	    <script src="../IDA2A/dist/js/flat-ui.min.js"></script>
 
-		<script type="text/javascript">
-		$(function () {
-
-		})();
-
-		</script>
 	</body>
 </html>

@@ -8,13 +8,15 @@ $(function () {
 	*	Script de gestion des formulaires
 	***************************************************/
 
-	var Exploitant=$("input:radio:nth(0)");
-	var Internaute=$("input:radio:nth(1)");
-	var Administrateur=$("input:radio:nth(2)");
+	var Exploitant=$("#Profil").find("option [value='Exploitant']");
+	var Autre=$("input:radio:nth(1)");
+	var Internaute=$("input:radio:nth(0)");
+	var Administrateur=$("#Profil").find("option [value='Administrateur']");
 	
 	$(".authentification").hide();
 	$(".formInput").hide();
 	$(".panel").hide();
+	$("#Profil").hide();	
 
 	
 	Internaute.click(function () {
@@ -23,25 +25,29 @@ $(function () {
 		$("#internaute .formInput").toggle("clip");
 		$("#exploit .authentification").hide("clip");
 		$("#Admin .authentification").hide("clip");
+		$("#Profil").hide();
 	})
 
-	Administrateur.click(function() {
-		$(".authentification").hide(500);
-		$(".formInput").hide(500);
+	Autre.click(function () {
 		$("#internaute .formInput").hide("clip");
-		$("#exploit .authentification").hide("clip");
-		$("#Admin .authentification").toggle("fold");
+		$("#Profil").toggle(500);	 
 	});
 
-
-	Exploitant.click(function() {
-		$(".authentification").hide(500);
-		$(".formInput").hide(500);
-		$("#internaute .formInput").hide("clip");
-		$("#Admin .authentification").hide("clip");
-		 $("#exploit .authentification").toggle("fold");
+	$("#Profil > select").on('change', function () {
+		if($(this).val()=="Exploitant"){
+			
+			$(".authentification").hide(500);
+			$(".formInput").hide(500);
+			$("#exploit .authentification").hide("clip");
+			$("#Admin .authentification").toggle("fold");			
+		}else if ($(this).val()=="Administrateur") {
+			
+			$(".authentification").hide(500);
+			$(".formInput").hide(500);
+			$("#Admin .authentification").hide("clip");
+			 $("#exploit .authentification").toggle("fold");			
+		}
 	});
-
 
 	/**********************************************************************
 	*	Partie relative a la gestion de la liste en fonction des communes
@@ -104,6 +110,8 @@ $(function () {
 		 //effectuation de la requete 
 
 		$.post("../IDA2A/app/Traitement.php",{login:login, mdp:mdp},function (data) {
+			
+
 			 if (data=="ok") {
 			 	$("#exploit .authentification").hide("clip");
 			 	$("#exploit .formInput").show(500);
@@ -189,17 +197,15 @@ $(function () {
 	****************************************************************************
 	*********/
 
-	$(".formInput ").bind("submit",function (event) {
+	$(".Incident .formInput").bind("submit",function(e){
 		
 		//Arret du postage de formulaire normal 
-		event.preventDefault();
-
-		var form= $(this);
+		e.preventDefault();
 
 		//reception des infos du formulaire 
+		var form=  $(this).serialize();
 
-		$.post("../IDA2A/app/Traitement.php", $(this).serialize(),function (data){
-			
+		$.post("../IDA2A/app/TraitementInc.php",form,function (data){
 			 	alert(data);
 		});
 

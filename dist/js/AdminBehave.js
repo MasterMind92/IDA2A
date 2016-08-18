@@ -8,8 +8,8 @@ $(function () {
 
 	/* MASQUAGE DES DIFFERENTES PAGES  */	
 
-	$('.Start').hide();
 	$('.Zone').hide();
+	$('.Start').hide();
 	$('.Suggestion').hide();
 	$('#abobo').hide();
 	$('#adjame').hide();
@@ -22,12 +22,13 @@ $(function () {
 	$('#koumassi').hide();
 	$('#treichville').hide();
 	$('#attecoube').hide();
-
+	$('#stg').hide();
+	$('#stz').hide();
 	/* EVENEMENT CLICK SUR LE BOUTON ACCUEIL */	
 	
 	$(".navbar-brand").click(function () {
 		
-		 $(".Start").slideUp(500);
+		 $('.Start').slideUp(500);
 		 $(".Suggestion").slideUp(500);
 		 $(".Zone").slideUp(500);
 		 $('#abobo').slideUp(500);
@@ -41,13 +42,15 @@ $(function () {
 		 $('#koumassi').slideUp(500);
 		 $('#treichville').slideUp(500);
 		 $('#attecoube').slideUp(500);
-		 $(".google").slideDown(500);
+		 $('#stg').slideUp(500);
+		 $('#stz').slideUp(500);
+		 $(".googleMap").slideDown(500);
 	})
 	
 	/* EVENEMENT CLICK SUR LE BOUTON INFOS GENERALES */	
 
 	$("ul.dropdown-menu:eq(0) li:first > a").click(function () {
-		 $(".google").slideUp(500);
+		 $(".googleMap").slideUp(500);
 		 $(".Suggestion").slideUp(500);
 		 $(".Zone").slideUp(500);
 		 $('#abobo').slideUp(500);
@@ -61,6 +64,8 @@ $(function () {
 		 $('#koumassi').slideUp(500);
 		 $('#treichville').slideUp(500);
 		 $('#attecoube').slideUp(500);
+		 $('#stg').slideUp(500);
+		 $('#stz').slideUp(500);
 		 $(".Start").slideDown(500);
 
 	});
@@ -68,7 +73,7 @@ $(function () {
 	/* EVENEMENT CLICK SUR LE BOUTON INFOS PAR ZONE  */	
 
 	$("ul.dropdown-menu:eq(0) li:eq(1) > a").click(function () {
-		 $(".google").slideUp(500);
+		 $(".googleMap").slideUp(500);
 		 $(".Start").slideUp(500);
 		 $(".Suggestion").slideUp(500);
 		 $('#abobo').slideUp(500);
@@ -82,13 +87,15 @@ $(function () {
 		 $('#koumassi').slideUp(500);
 		 $('#treichville').slideUp(500);
 		 $('#attecoube').slideUp(500);
+		 $('#stg').slideUp(500);
+		 $('#stz').slideUp(500);
 		  $(".Zone").slideDown(500);
 	});
 
 	/* EVENEMENT CLICK SUR LE BOUTON SUGGESTION */	
 
 	$("ul.dropdown-menu:eq(1) li:first > a").click(function () {
-		 $(".google").slideUp(500);
+		 $(".googleMap").slideUp(500);
 		 $(".Start").slideUp(500);
 		 $(".Zone").slideUp(500);
 		 $('#abobo').slideUp(500);
@@ -102,13 +109,15 @@ $(function () {
 		 $('#koumassi').slideUp(500);
 		 $('#treichville').slideUp(500);
 		 $('#attecoube').slideUp(500);
+		 $('#stg').slideUp(500);
+		 $('#stz').slideUp(500);
 		 $(".Suggestion").slideDown(500);
 	});
 
 	/* EVENEMENT CLICK SUR LA ZONE ABOBO */
 	
 	$("#ab").click(function () {
-		 $(".google").slideUp(500);
+		 $(".googleMap").slideUp(500);
 		 $(".Start").slideUp(500);
 		 $(".Zone").slideUp(500);
 		 $(".Suggestion").slideUp(500);
@@ -122,13 +131,15 @@ $(function () {
 		 $('#koumassi').slideUp(500);
 		 $('#treichville').slideUp(500);
 		 $('#attecoube').slideUp(500);
+		 $('#stg').slideUp(500);
+		 $('#stz').slideUp(500);
 		 $('#abobo').slideDown(500);
 	});
 
 	/* EVENEMENT CLICK SUR LA ZONE ADJAME */
 	
 	$("#ad").click(function () {
-		 $(".google").slideUp(500);
+		 $(".googleMap").slideUp(500);
 		 $(".Start").slideUp(500);
 		 $(".Zone").slideUp(500);
 		 $(".Suggestion").slideUp(500);
@@ -142,13 +153,15 @@ $(function () {
 		 $('#koumassi').slideUp(500);
 		 $('#treichville').slideUp(500);
 		 $('#attecoube').slideUp(500);
+		 $('#stg').slideUp(500);
+		 $('#stz').slideUp(500);
 		 $('#adjame').slideDown(500);
 	});
 
 	/* EVENEMENT CLICK SUR LA ZONE ANYAMA */
 	
 	$("#an").click(function () {
-		 $(".google").slideUp(500);
+		 $(".googleMap").slideUp(500);
 		 $(".Start").slideUp(500);
 		 $(".Zone").slideUp(500);
 		 $(".Suggestion").slideUp(500);
@@ -162,13 +175,15 @@ $(function () {
 		 $('#koumassi').slideUp(500);
 		 $('#treichville').slideUp(500);
 		 $('#attecoube').slideUp(500);
+		 $('#stg').slideUp(500);
+		 $('#stz').slideUp(500);
 		 $('#anyama').slideDown(500);
 	});
 
 	/* EVENEMENT CLICK SUR LA ZONE COCODY */
 	
 	$("#co").click(function () {
-		 $(".google").slideUp(500);
+		 $(".googleMap").slideUp(500);
 		 $(".Start").slideUp(500);
 		 $(".Zone").slideUp(500);
 		 $(".Suggestion").slideUp(500);
@@ -182,13 +197,15 @@ $(function () {
 		 $('#koumassi').slideUp(500);
 		 $('#treichville').slideUp(500);
 		 $('#attecoube').slideUp(500);
+		 $('#stg').slideUp(500);
+		 $('#stz').slideUp(500);
 		 $('#cocody').slideDown(500);
 	});
 
 	/* EVENEMENT CLICK SUR LA ZONE PLATEAU */
 	
 	$("#pl").click(function () {
-		 $(".google").slideUp(500);
+		 $(".googleMap").slideUp(500);
 		 $(".Start").slideUp(500);
 		 $(".Zone").slideUp(500);
 		 $(".Suggestion").slideUp(500);
@@ -202,13 +219,15 @@ $(function () {
 		 $('#koumassi').slideUp(500);
 		 $('#treichville').slideUp(500);
 		 $('#attecoube').slideUp(500);
+		 $('#stg').slideUp(500);
+		 $('#stz').slideUp(500);
 		 $('#plateau').slideDown(500);
 	});
 
 	/* EVENEMENT CLICK SUR LA ZONE MARCORY */
 	
 	$("#ma").click(function () {
-		 $(".google").slideUp(500);
+		 $(".googleMap").slideUp(500);
 		 $(".Start").slideUp(500);
 		 $(".Zone").slideUp(500);
 		 $(".Suggestion").slideUp(500);
@@ -222,13 +241,15 @@ $(function () {
 		 $('#koumassi').slideUp(500);
 		 $('#treichville').slideUp(500);
 		 $('#attecoube').slideUp(500);
+		 $('#stg').slideUp(500);
+		 $('#stz').slideUp(500);
 		 $('#marcory').slideDown(500);
 	});
 
 	/* EVENEMENT CLICK SUR LA ZONE PORT-BOUET */
 	
 	$("#po").click(function () {
-		 $(".google").slideUp(500);
+		 $(".googleMap").slideUp(500);
 		 $(".Start").slideUp(500);
 		 $(".Zone").slideUp(500);
 		 $(".Suggestion").slideUp(500);
@@ -242,13 +263,15 @@ $(function () {
 		 $('#koumassi').slideUp(500);
 		 $('#treichville').slideUp(500);
 		 $('#attecoube').slideUp(500);
+		 $('#stg').slideUp(500);
+		 $('#stz').slideUp(500);
 		 $('#portbouet').slideDown(500);
 	});
 
 	/* EVENEMENT CLICK SUR LA ZONE YOPOUGON */
 	
 	$("#yo").click(function () {
-		 $(".google").slideUp(500);
+		 $(".googleMap").slideUp(500);
 		 $(".Start").slideUp(500);
 		 $(".Zone").slideUp(500);
 		 $(".Suggestion").slideUp(500);
@@ -262,13 +285,15 @@ $(function () {
 		 $('#koumassi').slideUp(500);
 		 $('#treichville').slideUp(500);
 		 $('#attecoube').slideUp(500);
+		 $('#stg').slideUp(500);
+		 $('#stz').slideUp(500);
 		 $('#yopougon').slideDown(500);
 	});
 
 	/* EVENEMENT CLICK SUR LA ZONE KOUMASSI */
 	
 	$("#ko").click(function () {
-		 $(".google").slideUp(500);
+		 $(".googleMap").slideUp(500);
 		 $(".Start").slideUp(500);
 		 $(".Zone").slideUp(500);
 		 $(".Suggestion").slideUp(500);
@@ -282,13 +307,15 @@ $(function () {
 		 $('#yopougon').slideUp(500);
 		 $('#treichville').slideUp(500);
 		 $('#attecoube').slideUp(500);
+		 $('#stg').slideUp(500);
+		 $('#stz').slideUp(500);
 		 $('#koumassi').slideDown(500);
 	});
 
 	/* EVENEMENT CLICK SUR LA ZONE TREICHVILLE */
 	
 	$("#tr").click(function () {
-		 $(".google").slideUp(500);
+		 $(".googleMap").slideUp(500);
 		 $(".Start").slideUp(500);
 		 $(".Zone").slideUp(500);
 		 $(".Suggestion").slideUp(500);
@@ -302,13 +329,15 @@ $(function () {
 		 $('#yopougon').slideUp(500);
 		 $('#koumassi').slideUp(500);
 		 $('#attecoube').slideUp(500);
+		 $('#stg').slideUp(500);
+		 $('#stz').slideUp(500);
 		 $('#treichville').slideDown(500);
 	});
 
 	/* EVENEMENT CLICK SUR LA ZONE ATTECOUBE */
 	
 	$("#at").click(function () {
-		 $(".google").slideUp(500);
+		 $(".googleMap").slideUp(500);
 		 $(".Start").slideUp(500);
 		 $(".Zone").slideUp(500);
 		 $(".Suggestion").slideUp(500);
@@ -322,13 +351,38 @@ $(function () {
 		 $('#yopougon').slideUp(500);
 		 $('#koumassi').slideUp(500);
 		 $('#treichville').slideUp(500);
+		 $('#stg').slideUp(500);
+		 $('#stz').slideUp(500);
 		 $('#attecoube').slideDown(500);
 	});
 
-	//EVENEMENT CLICK SUR BOUTON RETOUR
+	/* EVENEMENT CLICK SUR LE BOUTON STAT PAR ZONE  */
+	
+	$("ul.dropdown-menu:eq(2) li:first > a").click(function () {
+		 $(".googleMap").slideUp(500);
+		 $(".Suggestion").slideUp(500);
+		 $(".Zone").slideUp(500);
+		 $('#abobo').slideUp(500);
+		 $('#adjame').slideUp(500);
+		 $('#anyama').slideUp(500);
+		 $('#cocody').slideUp(500);
+		 $('#plateau').slideUp(500);
+		 $('#marcory').slideUp(500);
+		 $('#portbouet').slideUp(500);
+		 $('#yopougon').slideUp(500);
+		 $('#koumassi').slideUp(500);
+		 $('#treichville').slideUp(500);
+		 $('#attecoube').slideUp(500);
+		 $(".Start").slideUp(500);
+		 $('#stz').slideUp(500);
+		 $('#stg').slideDown(500);
 
-	$(".back").click(function () {
-		 $(".google").slideUp(500);
+	});
+	
+	/* EVENEMENT CLICK SUR LE BOUTON STAT PAR ZONE  */	
+
+	$("ul.dropdown-menu:eq(2) li:eq(1) > a").click(function () {
+		 $(".googleMap").slideUp(500);
 		 $(".Start").slideUp(500);
 		 $(".Suggestion").slideUp(500);
 		 $('#abobo').slideUp(500);
@@ -342,7 +396,31 @@ $(function () {
 		 $('#koumassi').slideUp(500);
 		 $('#treichville').slideUp(500);
 		 $('#attecoube').slideUp(500);
-		  $(".Zone").slideDown(500);
+		 $(".Zone").slideUp(500);
+		 $('#stg').slideUp(500);
+		  $('#stz').slideDown(500);
+	});
+
+	//EVENEMENT CLICK SUR BOUTON RETOUR
+
+	$(".back").click(function () {
+		 $(".googleMap").slideUp(500);
+		 $(".Start").slideUp(500);
+		 $(".Suggestion").slideUp(500);
+		 $('#abobo').slideUp(500);
+		 $('#adjame').slideUp(500);
+		 $('#anyama').slideUp(500);
+		 $('#cocody').slideUp(500);
+		 $('#plateau').slideUp(500);
+		 $('#marcory').slideUp(500);
+		 $('#portbouet').slideUp(500);
+		 $('#yopougon').slideUp(500);
+		 $('#koumassi').slideUp(500);
+		 $('#treichville').slideUp(500);
+		 $('#attecoube').slideUp(500);
+		 $('#stg').slideUp(500);
+		 $('#stz').slideUp(500);
+		 $(".Zone").slideDown(500);
 	});
 
 
@@ -383,28 +461,8 @@ $(function () {
 	})
 
 
-
-	$('#submit').click(function (e) {
-
-    		e.preventDefault();
-
-    		var Lat = $('form').find('input[name=\'Lat\']').val();
-    		var Lng = $('form').find('input[name=\'Lng\']').val();
-    		var Nom = $('form').find('input[name=\'nom\']').val();
-    		
-
-    		$.post("traitement.php",{nom:Nom,Lat:Lat,Lng:Lng},function (data) {
-    			 alert(data);
-    		});
-    			
-    	});
-
 	/******************************************************************************
 	* 				REQUETE AJAX DES SOUMISSION DES FORMULAIRES 
-	*******************************************************************************/
-
-	/******************************************************************************
-	* 				COMPORTEMENT DE LA CARTE EN ADMINISTRATION 	 
 	*******************************************************************************/
 
 	

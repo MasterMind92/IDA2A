@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Sam 16 Juillet 2016 à 17:00
+-- Généré le :  Mar 16 Août 2016 à 08:18
 -- Version du serveur :  5.6.17
 -- Version de PHP :  5.5.12
 
@@ -20,10 +20,6 @@ SET time_zone = "+00:00";
 -- Base de données :  `projetbdd`
 --
 
-
-CREATE DATABASE IF NOT EXISTS projetbdd;
-
-use projetbdd;
 -- --------------------------------------------------------
 
 --
@@ -111,8 +107,8 @@ CREATE TABLE IF NOT EXISTS `incident` (
   `longitude` double DEFAULT NULL,
   `lattitude` double DEFAULT NULL,
   `descr_incident` text,
-  `image` blob,
   `pre_sup` varchar(255) DEFAULT NULL,
+  `image` blob,
   `id_catincident` int(11) NOT NULL,
   `id_zone` int(11) NOT NULL,
   `id_utilisateur` int(11) NOT NULL,
@@ -120,33 +116,39 @@ CREATE TABLE IF NOT EXISTS `incident` (
   KEY `fk_catincident` (`id_catincident`),
   KEY `fk_zone` (`id_zone`),
   KEY `fk_utilisateur` (`id_utilisateur`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=22 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=53 ;
 
 --
 -- Contenu de la table `incident`
 --
 
-INSERT INTO `incident` (`id_incident`, `num_incident`, `lib_incident`, `date_incident`, `longitude`, `lattitude`, `descr_incident`, `image`, `pre_sup`, `id_catincident`, `id_zone`, `id_utilisateur`) VALUES
-(1, '', 'bouche', '2016-03-24', 65, 255, '?ºa deborde trop', NULL, 'vers gare de waren la', 1, 10, 1),
-(2, '', 'bouche', '2016-02-03', 135, 58, 'c''est gate meme huum', NULL, 'en face de la pharmacie', 2, 50, 1),
-(3, '', 'cassee', '2016-02-15', 12.5, 1, 'situation catastrophique', NULL, 'derriere le terrain', 3, 38, 1),
-(4, '', 'bouche', '2016-03-25', 12.5, 1, 'non les gars pardon venez vite ?ºa sent', NULL, 'vers le maquis fesses rouge', 3, 38, 1),
-(5, '', 'cassee', '2016-04-11', 65, 65, 'l''eau la est mal beaucoup', NULL, 'deuxieme carefour ?á droite', 2, 25, 3),
-(6, '', 'bouche', '2016-04-20', 225, 12, '?ºa deborde trop', NULL, '', 2, 16, 3),
-(7, '', 'bouche', '2016-02-01', 40, 1.25, 'c''est gate meme huum', NULL, '', 2, 1, 3),
-(8, '', 'bouche', '2016-03-07', 56.52, 205, 'l''eau la est mal beaucoup', NULL, '', 2, 47, 3),
-(9, '', 'cassee', '2016-03-10', 87.01, 53, 'non les gars pardon venez vite ?ºa sent', NULL, '', 5, 90, 1),
-(10, '', 'cassee', '2016-03-10', 87.01, 53, 'situation catastrophique', NULL, '', 5, 90, 1),
-(11, '', 'cassee', '2016-04-11', 23, 69.2, 'situation catastrophique', NULL, '', 5, 89, 1),
-(12, '', 'bouche', '2016-04-11', 86.04, 21, 'c''est gate meme huum', NULL, 'derriere le titi', 5, 54, 1),
-(13, '', 'bouche', '2016-04-11', 55, 45.09, 'c''est gate meme huum', NULL, 'devant le portail du quartier', 4, 65, 1),
-(14, '', 'cassee', '2016-04-20', 89.2, 77, 'non les gars pardon venez vite ?ºa sent', NULL, 'a cot?® de cocotier la', 4, 77, 1),
-(15, '', 'cassee', '2016-02-15', 89.2, 77, 'non les gars pardon venez vite ?ºa sent', NULL, '', 4, 77, 1),
-(16, '', 'cassee', '2016-04-20', 210, 123, '?ºa deborde trop', NULL, '', 4, 23, 1),
-(18, '0', 'Regard', '2016-07-16', NULL, NULL, 'Bonjour les gens ', NULL, 'cap sud', 1, 1, 1),
-(19, '0', 'Regard', '2016-07-16', NULL, NULL, 'Bonjour les gens ', NULL, 'cap sud', 1, 1, 1),
-(20, '0', 'Regard', '2016-07-16', NULL, NULL, 'Bonjour les gens ', NULL, 'cap sud', 1, 1, 1),
-(21, '0', 'Regard', '2016-07-16', NULL, NULL, 'un jour sa va finir', NULL, 'a cote du yota ', 1, 1, 1);
+INSERT INTO `incident` (`id_incident`, `num_incident`, `lib_incident`, `date_incident`, `longitude`, `lattitude`, `descr_incident`, `pre_sup`, `image`, `id_catincident`, `id_zone`, `id_utilisateur`) VALUES
+(27, '', 'bouche', '2016-03-24', 65, 255, '?ºa deborde trop', 'vers gare de waren la', NULL, 1, 10, 2),
+(28, '', 'bouche', '2016-02-03', 135, 58, 'c''est gate meme huum', 'en face de la pharmacie', NULL, 2, 50, 2),
+(29, '', 'cassee', '2016-02-15', 12.5, 1, 'situation catastrophique', 'derriere le terrain', NULL, 3, 38, 2),
+(30, '', 'bouche', '2016-03-25', 12.5, 1, 'non les gars pardon venez vite ?ºa sent', 'vers le maquis fesses rouge', NULL, 3, 38, 2),
+(31, '', 'cassee', '2016-04-11', 65, 65, 'l''eau la est mal beaucoup', 'deuxieme carefour ?á droite', NULL, 2, 25, 2),
+(32, '', 'bouche', '2016-04-20', 225, 12, '?ºa deborde trop', '', NULL, 2, 16, 2),
+(33, '', 'bouche', '2016-02-01', 40, 1.25, 'c''est gate meme huum', '', NULL, 2, 1, 2),
+(34, '', 'bouche', '2016-03-07', 56.52, 205, 'l''eau la est mal beaucoup', '', NULL, 2, 47, 2),
+(35, '', 'cassee', '2016-03-10', 87.01, 53, 'non les gars pardon venez vite ?ºa sent', '', NULL, 5, 90, 2),
+(36, '', 'cassee', '2016-03-10', 87.01, 53, 'situation catastrophique', '', NULL, 5, 90, 2),
+(37, '', 'cassee', '2016-04-11', 23, 69.2, 'situation catastrophique', '', NULL, 5, 89, 2),
+(38, '', 'bouche', '2016-04-11', 86.04, 21, 'c''est gate meme huum', 'derriere le titi', NULL, 5, 54, 2),
+(39, '', 'bouche', '2016-04-11', 55, 45.09, 'c''est gate meme huum', 'devant le portail du quartier', NULL, 4, 65, 2),
+(40, '', 'cassee', '2016-04-20', 89.2, 77, 'non les gars pardon venez vite ?ºa sent', 'a cot?® de cocotier la', NULL, 4, 77, 2),
+(41, '', 'cassee', '2016-02-15', 89.2, 77, 'non les gars pardon venez vite ?ºa sent', '', NULL, 4, 77, 2),
+(42, '', 'cassee', '2016-04-20', 210, 123, '?ºa deborde trop', '', NULL, 4, 23, 2),
+(43, '', 'cassee', '2016-04-20', 210, 123, '?ºa deborde trop', '', NULL, 5, 23, 2),
+(44, '', 'cassee', '2016-04-20', 210, 123, '?ºa deborde trop', '', NULL, 4, 2, 2),
+(45, '', 'cassee', '2016-04-20', 210, 123, '?ºa deborde trop', '', NULL, 2, 15, 2),
+(46, '', 'cassee', '2016-04-20', 210, 123, '?ºa deborde trop', '', NULL, 5, 17, 2),
+(47, '', 'cassee', '2016-04-20', 210, 123, '?ºa deborde trop', '', NULL, 5, 77, 2),
+(48, '', 'cassee', '2016-04-20', 210, 123, '?ºa deborde trop', '', NULL, 5, 69, 2),
+(49, '', 'cassee', '2016-04-20', 210, 123, '?ºa deborde trop', '', NULL, 5, 60, 2),
+(50, '', 'cassee', '2016-04-20', 210, 123, '?ºa deborde trop', '', NULL, 5, 65, 2),
+(51, '', 'cassee', '2016-04-20', 210, 123, '?ºa deborde trop', '', NULL, 5, 38, 2),
+(52, '', 'cassee', '2016-04-20', 210, 123, '?ºa deborde trop', '', NULL, 5, 36, 2);
 
 -- --------------------------------------------------------
 
@@ -156,12 +158,12 @@ INSERT INTO `incident` (`id_incident`, `num_incident`, `lib_incident`, `date_inc
 
 CREATE TABLE IF NOT EXISTS `intervenant` (
   `id_intervenant` int(11) NOT NULL AUTO_INCREMENT,
-  `raisonSociale` varchar(255) DEFAULT NULL,
-  `RespoIntervenant` varchar(255) DEFAULT NULL,
-  `tel` varchar(25) DEFAULT NULL,
-  `Adresse` varchar(255) DEFAULT NULL,
+  `raisonsocial` varchar(255) DEFAULT NULL,
+  `respointervenant` varchar(255) DEFAULT NULL,
+  `tel` varchar(255) DEFAULT NULL,
+  `adress` varchar(255) DEFAULT NULL,
   `mail` varchar(255) DEFAULT NULL,
-  `siteWeb` varchar(255) DEFAULT NULL,
+  `siteweb` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_intervenant`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
@@ -210,21 +212,11 @@ INSERT INTO `niveautraitement` (`id_niveau`, `libelle`, `description`) VALUES
 
 CREATE TABLE IF NOT EXISTS `suggestion` (
   `id_suggestion` int(11) NOT NULL AUTO_INCREMENT,
+  `lib_suggestion` text,
   `id_utilisateur` int(11) DEFAULT NULL,
-  `lib_suggestion` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_suggestion`),
   KEY `fk_user` (`id_utilisateur`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
-
---
--- Contenu de la table `suggestion`
---
-
-INSERT INTO `suggestion` (`id_suggestion`, `id_utilisateur`, `lib_suggestion`) VALUES
-(1, 3, 'est ce que....'),
-(2, 3, 'YO MAN'),
-(3, 3, 'Bonjour les gens'),
-(4, 3, 'Bonjouir tout le monde');
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -275,20 +267,15 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `id_catutilisateur` int(11) NOT NULL,
   PRIMARY KEY (`id_utilisateur`),
   KEY `fk_catuser` (`id_catutilisateur`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Contenu de la table `utilisateur`
 --
 
 INSERT INTO `utilisateur` (`id_utilisateur`, `nom_utilisateur`, `prenom_utilisateur`, `contact_utilisateur`, `email`, `login`, `motdepasse`, `id_catutilisateur`) VALUES
-(1, 'Assamoi', 'Jenica', '48149089', 'mjassamoi@gmail.com', 'jeni', 'bbdamour', 2),
-(2, 'Kouakou', 'Ananze', '01020304', 'anazek@gmail.com', 'kananze', 'vieuxdamour', 1),
-(3, 'Abraham', 'lincoln', '78562815', 'akaguembega@yahoo.fr', 'bfnoir', 'lincoln', 1),
-(4,'Principal','','','','AdminPrincipal','EnvironnementIDA2A',2),
-(5,'Secondaire','','','','Administrateur_Secondaire','EnvironnementIDA2A',2),
-(6,'Developpeur','','','','MasterMind92','youngmoney1992',2),
-(7,'Developpeur','','','','TheGrimmReaper','at%ofotemefi1er',2);
+(1, 'Beugre', 'N''ko Georges Axel', '05 44 43 08', 'nuzumakix@yahoo.fr', 'Admin1', 'Bonjour', 2),
+(2, 'Dalo', 'Waly Marc-Andre', '47 42 71 63', 'yakuzaken92@gmail.com', 'Admin2', 'Bonjour', 2);
 
 -- --------------------------------------------------------
 
@@ -302,7 +289,7 @@ CREATE TABLE IF NOT EXISTS `zone` (
   `id_commune` int(11) NOT NULL,
   PRIMARY KEY (`id_zone`),
   KEY `fk_id_commune` (`id_commune`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=110 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=144 ;
 
 --
 -- Contenu de la table `zone`
@@ -417,7 +404,41 @@ INSERT INTO `zone` (`id_zone`, `libelle_zone`, `id_commune`) VALUES
 (106, 'Cite verte', 11),
 (107, 'Sogefia', 11),
 (108, 'Cite CIE (Niangon)', 11),
-(109, 'Academie (Niangon)', 11);
+(109, 'Academie (Niangon)', 11),
+(110, 'Agban Attie', 4),
+(111, 'Attecoube 3', 4),
+(112, 'Djene Ecare', 4),
+(113, 'Sante Ecole', 4),
+(114, 'Sante 3 Residentiel 1', 4),
+(115, 'Sant?® 3 R?®sidentiel 2', 4),
+(116, 'Sant?® 3 Extension', 4),
+(117, 'Fromager', 4),
+(118, 'Deinde', 4),
+(119, 'Asapsu', 4),
+(120, 'Awa', 4),
+(121, 'Jean-Paul 2', 4),
+(122, 'Sante Carrefour', 4),
+(123, 'Ak?®li?®', 4),
+(124, 'Lackman', 4),
+(125, 'Douagoville', 4),
+(126, 'Camp Douane', 4),
+(127, 'Jerusalem Residentiel', 4),
+(128, 'J?®rusalem 1', 4),
+(129, 'J?®rusalem 2', 4),
+(130, 'J?®rusalem 3', 4),
+(131, 'Sebroko', 4),
+(132, 'La Paix', 4),
+(133, 'Lagune', 4),
+(134, 'Espoir', 4),
+(135, 'Mosqu?®e', 4),
+(136, 'Saint-Joseph', 4),
+(137, 'Ecole', 4),
+(138, 'Gbebouto', 4),
+(139, 'Cantonnement Forestier', 4),
+(140, 'Cite Fairmont 1', 4),
+(141, 'Cite Fairmont 2', 4),
+(142, 'Ecole Forestiere', 4),
+(143, 'Bidjante', 4);
 
 --
 -- Contraintes pour les tables exportées

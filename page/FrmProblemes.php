@@ -18,44 +18,43 @@
 							<fieldset >
 								<legend>Profil</legend>
 							
-								
-								<label>
-									<input type="radio" name="profil" id="input" value="Exploitant">
-									Exploitant
-								</label>
-
 								<label>
 									<input type="radio" name="profil" id="input" value="Internaute">
 									Internaute
 								</label>
 
 								<label>
-									<input type="radio" name="profil" id="input" value="Admin">
-									Administrateur
+									<input type="radio" name="profil" id="input" value="Autres">
+									Autres
 								</label>
+
 							</fieldset>
 						</div>
 					</div>		
 				</div>
 
-				<!-- BOITE DE NOTIFICATION DE SOUMISSION DU FORMULAIRE -->
+				<!-- FORMULAIRE DE CHOIX DE PROFIL AUTRE QU'INTERNAUTE -->
 
 				<div class="row">
-					<div class="col-xs-offset-3 col-xs-6 col-sm-offset-3 col-sm-6 col-md-offset-3 col-md-6 col-lg-offset-3 col-lg-6">
-						<div class="panel panel-success">
-							  <div class="panel-heading">
-									<h3 class="panel-title">Notification </h3>
-							  </div>
-							  <div class="panel-body succes">
-									Le formulaire a ete soumis avec succes <span class="glyphicon glyphicon-ok "></span> 
-									<a type="button" href="accueil" class="btn btn-success">OK</a>
-							  </div>
-						</div>
+					
+					<div class="col-xs-4 col-sm-4 col-md-offset-4 col-md-4 col-lg-offset-4 col-lg-4" id="Profil">
+						
+						<select name="profil" class="form-control" required="required">
+							<option value=-1> Choisissez votre profil </option>
+							<option value="Exploitant">Exploitant</option>
+							<option value="Administrateur">Administrateur</option>
+						</select>
+					
 					</div>
 				</div>
 
-				<!-- FORMULAIRE DE L'INTERNAUTE-->
+				<!---------------------------------------------------------->
+				<!--             FORMULAIRE DE L'INTERNAUTE               -->
+				<!---------------------------------------------------------->
+
+
 				<div id="internaute" class="Incident">
+					
 					<form action="" method="POST" class="form-horizontal formInput" role="form" enctype="multipart/form-data">
 						
 						<legend> <h2 align="center">Indiquez votre probleme ici</h2>  </legend>
@@ -87,17 +86,18 @@
 								<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
 									<select name="CommuneInt" id="CommuneInt" class="form-control" required="required">
 										<option value=-1>Commune</option>
-										<option value="Abobo">Abobo</option>
-										<option value="Adjame">Adjame</option>
-										<option value="Marcory">Marcory</option>
-										<option value="Port-Bouet">Port-Bouet</option>
-										<option value="Yopougon">Yopougon</option>
-										<option value="Anyama">Anyama</option>
-										<option value="Plateau">Plateau</option>
-										<option value="Koumassi">Koumassi</option>
-										<option value="Treichville">Treichville</option>
-										<option value="Cocody">Cocody</option>
-										<option value="Attecoube">Attecoube</option>
+										<option value="1">Abobo</option>
+										<option value="2">Adjame</option>
+										<option value="3">Anyama</option>
+										<option value="4">Attecoube</option>
+										<option value="5">Cocody</option>
+										<option value="6">Koumassi</option>
+										<option value="7">Marcory</option>
+										<option value="8">Plateau</option>
+										<option value="9">Treichville</option>
+										<option value="10">Port-Bouet</option>
+										<option value="11">Yopougon</option>
+								
 									</select>
 								</div>
 								<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
@@ -150,7 +150,7 @@
 					
 					<!-- FORMULAIRE D'AUTHENTIFICATION -->
 					<div class="authentification">
-						<form id="FrmAuthExp" class="col-xs-12 col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4 col-lg-offset-4 col-lg-4" action="/" method="POST" role="form">
+						<form id="FrmAuthExp" class="col-xs-12 col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4 col-lg-offset-4 col-lg-4" action="../IDA2A/app/Traitement.php" method="POST" role="form">
 							<legend> Veuillez vous identifier</legend>
 						
 							<div class="form-group">
@@ -164,7 +164,9 @@
 						</form>
 					</div>
 
+					<!---------------------------------------------------------------->
 					<!-- FORMULAIRE DE SOUMISSION D'UN INCIDENT PAR L'EXPLOITANT -->
+					<!---------------------------------------------------------------->
 					<div class="formInput">
 						<form action=""  method="POST" class="form-horizontal" role="form">
 							
@@ -264,7 +266,7 @@
 				<div id="Admin" class="Incident">
 					<!-- FORMULAIRE D'AUTHENTIFICATION DE L'ADMINISTRATEUR -->
 					<div class="authentification">
-						<form  id="FrmAuthAdmin" class="col-xs-12 col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4 col-lg-offset-4 col-lg-4" action="" method="POST" role="form">
+						<form  id="FrmAuthAdmin" class="col-xs-12 col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4 col-lg-offset-4 col-lg-4" action="../IDA2A/app/Traitement.php" method="POST" role="form">
 							<legend> Veuillez vous identifier</legend>
 						
 							<!-- -->
