@@ -1,0 +1,6 @@
+#Masquage de l'url 
+
+RewriteEngine on
+RewriteBase /test/IDA2A/
+RewriteRule ^([a-zA-Z0-9\-]+)$ index.php?p=$1 
+ 

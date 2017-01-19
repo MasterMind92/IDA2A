@@ -1,0 +1,88 @@
+/****************************
+ * comment
+ ****************************/
+
+
+/*****************************
+ * comment
+ ******************************/
+#Corps{
+	margin: 0px;
+	padding:0px;
+}
+
+
+#Superdiv{
+	position: absolute;
+	top: 40px;
+	background-color:white;
+}
+
+
+
+.FlashInfo{
+	background: rgb(236,240,241) ;
+	height:350px;
+}
+
+/* comment */
+
+.contenu{
+	margin-top: 15px;
+}
+
+
+/* comment */
+
+#Accueil{
+	height: 800px;
+	width: 100%;
+	color: white;
+	font-size: 24px;
+	overflow: hidden;
+	text-align: justify;
+}
+/* **************************************************/
+
+#Accueil > div{
+	height: 800px;
+	width: 100%;
+	display: inline-block;
+}
+
+#Accueil  p{
+	font: oblique bold 1em sans-serif, "Times New Roman";
+	line-height: 30px;
+}
+
+#Accueil  .img-responsive{
+	height: 400px;
+	width: 700px;
+	margin: auto; 
+	
+}
+
+
+
+/*****************************
+ * comment
+ ******************************/
+
+ #FrmID{
+ 	margin-top: 100px;
+ 	margin-bottom: 100px;
+
+ }
+
+ /* comment */
+
+ footer{
+ 	margin-top: 15px;
+ }
+
+/* **************************************************/
+
+.succes{
+	font-weight: bold;
+	color: green;
+}
