@@ -4,7 +4,7 @@
 <h1> Projet de fin de cycle </h1>
 
 <p> Voici notre projet de fin de cycle. dans le but pouvoir acceder a l'administration, il faudrit d'abord que la base de donnees soit creee avec le nom projetbdd et puis que le rewrite module de wamp ou de xamp soit actif. Comme ceci:</p><br/>
-<img src="IDA2A/img/rewrite_module.png">
+<img src="img/rewrite_module.png">
 =======
 <h1> projet de fin de cycle <h1>
 
